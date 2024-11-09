@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/phil3/Documents/Development/weiss/weiss2/sources/Vtr2.cpp \
+  /Users/phil3/Documents/Development/weiss/tlbx/tlbx.hpp \
+  /Users/phil3/Documents/Development/weiss/tlbx/headers/col.hpp \
+  /Users/phil3/Documents/Development/weiss/tlbx/headers/mth.hpp \
+  /Users/phil3/Documents/Development/weiss/tlbx/headers/trg.hpp \
+  /Users/phil3/Documents/Development/weiss/tlbx/headers/str.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/arr.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/arr1.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/../sources/arr1.tem \
+  /Users/phil3/Documents/Development/weiss/arr/headers/arr2.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/../sources/arr2.tem \
+  /Users/phil3/Documents/Development/weiss/arr/headers/arr3.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/../sources/arr3.tem \
+  /Users/phil3/Documents/Development/weiss/arr/headers/arr2slice.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/../sources/arr2slice.tem \
+  /Users/phil3/Documents/Development/weiss/arr/headers/arr2sub.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/../sources/arr2sub.tem \
+  /Users/phil3/Documents/Development/weiss/arr/headers/darr1.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/darr2.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/darr2slice.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/darr2sub.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/uiarr1.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/uiarr2.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/barr1.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/barr2.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/barr3.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/barr2slice.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/barr2sub.hpp \
+  /Users/phil3/Documents/Development/weiss/weiss2/weiss2.hpp \
+  /Users/phil3/Documents/Development/weiss/weiss2/headers/Crd2.hpp \
+  /Users/phil3/Documents/Development/weiss/weiss2/headers/Pnt2.hpp \
+  /Users/phil3/Documents/Development/weiss/weiss2/headers/Vtr2.hpp \
+  /Users/phil3/Documents/Development/weiss/weiss2/headers/Trf2.hpp \
+  /Users/phil3/Documents/Development/weiss/weiss2/headers/Rtn2.hpp \
+  /Users/phil3/Documents/Development/weiss/weiss2/headers/Scl2.hpp \
+  /Users/phil3/Documents/Development/weiss/weiss2/headers/Atr2.hpp

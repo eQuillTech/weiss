@@ -1,0 +1,9 @@
+Target dependency graph (4 targets)
+Target 'weiss3' in project 'weiss'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'weiss'
+➜ Explicit dependency on target 'tlbx' in project 'weiss'
+➜ Explicit dependency on target 'arr' in project 'weiss'
+Target 'arr' in project 'weiss'
+➜ Explicit dependency on target 'tlbx' in project 'weiss'
+Target 'tlbx' in project 'weiss' (no dependencies)
+Target 'ZERO_CHECK' in project 'weiss' (no dependencies)

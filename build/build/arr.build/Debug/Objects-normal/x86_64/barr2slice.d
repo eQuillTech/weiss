@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/phil3/Documents/Development/weiss/arr/sources/barr2slice.cpp \
+  /Users/phil3/Documents/Development/weiss/arr/arr.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/arr1.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/../sources/arr1.tem \
+  /Users/phil3/Documents/Development/weiss/arr/headers/arr2.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/../sources/arr2.tem \
+  /Users/phil3/Documents/Development/weiss/arr/headers/arr3.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/../sources/arr3.tem \
+  /Users/phil3/Documents/Development/weiss/arr/headers/arr2slice.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/../sources/arr2slice.tem \
+  /Users/phil3/Documents/Development/weiss/arr/headers/arr2sub.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/../sources/arr2sub.tem \
+  /Users/phil3/Documents/Development/weiss/arr/headers/darr1.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/darr2.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/darr2slice.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/darr2sub.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/uiarr1.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/uiarr2.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/barr1.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/barr2.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/barr3.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/barr2slice.hpp \
+  /Users/phil3/Documents/Development/weiss/arr/headers/barr2sub.hpp

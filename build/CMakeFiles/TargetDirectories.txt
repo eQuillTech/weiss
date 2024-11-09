@@ -1,0 +1,12 @@
+/Users/phil3/Documents/Development/weiss/build/CMakeFiles/weiss2.dir
+/Users/phil3/Documents/Development/weiss/build/CMakeFiles/weiss3.dir
+/Users/phil3/Documents/Development/weiss/build/CMakeFiles/weiss.dir
+/Users/phil3/Documents/Development/weiss/build/CMakeFiles/ALL_BUILD.dir
+/Users/phil3/Documents/Development/weiss/build/CMakeFiles/ZERO_CHECK.dir
+/Users/phil3/Documents/Development/weiss/build/tlbx/CMakeFiles/tlbx.dir
+/Users/phil3/Documents/Development/weiss/build/tlbx/CMakeFiles/ALL_BUILD.dir
+/Users/phil3/Documents/Development/weiss/build/tlbx/CMakeFiles/ZERO_CHECK.dir
+/Users/phil3/Documents/Development/weiss/build/arr/CMakeFiles/arr.dir
+/Users/phil3/Documents/Development/weiss/build/arr/CMakeFiles/ALL_BUILD.dir
+/Users/phil3/Documents/Development/weiss/build/arr/CMakeFiles/ZERO_CHECK.dir
+/Users/phil3/Documents/Development/weiss/build/arr/examples/CMakeFiles/examples.dir
