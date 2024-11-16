@@ -32,11 +32,6 @@ set_target_properties(weiss PROPERTIES LINKER_LANGUAGE CXX)
 # submodules
 message(STATUS "project ${CMAKE_PROJECT_NAME}")
 if(${CMAKE_PROJECT_NAME} STREQUAL "weiss")
-    message(STATUS "adding tlbx")
     add_subdirectory(tlbx)
-endif()
-
-if("${CMAKE_PROJECT_NAME}" STREQUAL "weiss")
-    message(STATUS "adding arr")
     add_subdirectory(arr)
 endif()
