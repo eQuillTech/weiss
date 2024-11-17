@@ -11,7 +11,7 @@ class rtn2:public trf2
 {
 
 public:
-	rtn2(const Vtr2 &V,const Vtr2 &Vp);
+	rtn2(const vtr2 &V,const vtr2 &Vp);
 	rtn2(const double angle);
 	rtn2(const trf2 &T);
 	rtn2(const rtn2 &R);//copy constructor

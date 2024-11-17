@@ -15,7 +15,7 @@ rtn2::rtn2(const rtn2 &R):trf2(R)
 }
 
 //
-rtn2::rtn2(const Vtr2 &V,const Vtr2 &Vp):trf2()
+rtn2::rtn2(const vtr2 &V,const vtr2 &Vp):trf2()
 {
 	double magV=V.len();
 	double magVp=Vp.len();
