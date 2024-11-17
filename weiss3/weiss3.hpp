@@ -25,6 +25,6 @@ typedef scl3 scl;
 typedef rfn3 rfn;
 typedef atr3 atr;
 typedef bas3 bas;
-typedef zgs3 ags;
+typedef ags3 ags;
 
 #endif

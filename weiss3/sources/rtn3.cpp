@@ -62,7 +62,7 @@ rtn3::rtn3(const vtr3 &V,const vtr3 &Vp):trf3()
 		double angle=acos(V.dot(Vp)/Lprod);
 		vtr3 axisV=V.cross(Vp)/Lprod;
 		if(axisV.len()>0.)
-			*this=Rtn(axisV,angle);
+			*this=rtn(axisV,angle);
 		else
 			*this=trf3::ident();
 	}
@@ -71,7 +71,7 @@ rtn3::rtn3(const vtr3 &V,const vtr3 &Vp):trf3()
 //
 rtn3::rtn3(const double theta,const double phi,const double rho):trf3()
 {
-	*this=Rtn(Vtr::Vz,phi)*rtn3(vtr3::Vy,theta)*Rtn(Vtr::Vz,rho);
+	*this=rtn3(vtr3::Vz,phi)*rtn3(vtr3::Vy,theta)*rtn3(vtr3::Vz,rho);
 }
 
 //

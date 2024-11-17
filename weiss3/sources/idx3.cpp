@@ -35,4 +35,4 @@ Axs3 idx3::operator*(const vtr3 &V) const
 }
 */
 //
-idx3 round(const Idx &I){return I.round();}
+idx3 round(const idx3 &I){return I.round();}

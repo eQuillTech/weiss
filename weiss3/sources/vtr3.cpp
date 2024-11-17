@@ -16,7 +16,7 @@ const VtrDir VtrDir::Dir0(vtr3::Vz,vtr3::Vx,0.,0.,0.);
 //
 vtr3::vtr3(const VtrDir &dir)
 {
-	*this=Rtn(dir)*dir._axisZ;
+	*this=rtn3(dir)*dir._axisZ;
 }
 
 //

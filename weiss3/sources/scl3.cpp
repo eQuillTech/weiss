@@ -8,7 +8,7 @@
 #include "weiss3.hpp"
 
 //
-scl3::scl3(double x):Trf3()
+scl3::scl3(double x):trf3()
 {
-	*this=x*Trf3::ident();
+	*this=x*trf3::ident();
 }

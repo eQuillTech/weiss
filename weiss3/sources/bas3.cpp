@@ -42,7 +42,7 @@ idx3 bas3::dot(const vtr3 &V) const
 //
 vtr3 bas3::operator*(const idx3 &I) const
 {
-	vtr3 V=Vtr::Vo;
+	vtr3 V=vtr3::Vo;
 	for(size_t i=0;i<3;i++)
 		V+=I(i)*_p[i];
 	return V;
@@ -52,7 +52,7 @@ vtr3 bas3::operator*(const idx3 &I) const
 bas3 bas3::recip() const
 {
 	double v=vol();
-	Vtr V[3];
+	vtr3 V[3];
 	for(size_t i=0;i<3;++i)
 		V[i]=_p[mth::cyc(i+1,3)].cross(_p[mth::cyc(i+2,3)])/v;
 	return bas3(V);

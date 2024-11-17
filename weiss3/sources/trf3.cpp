@@ -111,7 +111,7 @@ trf3 trf3::ident()
 }
 
 //
-Trf::operator simd::float3x3()
+trf3::operator simd::float3x3()
 {
 	using simd::float3;
 	float3 row0={(float)_p[0][0],(float)_p[0][1],(float)_p[0][2]};
