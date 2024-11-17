@@ -33,23 +33,23 @@ Trf2::operator arr::darr2() const
 }
 
 //
-Vtr2 Trf2::operator*(const Vtr2 &V) const
+vtr2 Trf2::operator*(const vtr2 &V) const
 {
 	double x[2]={0.,0.};
 	for(size_t i=0;i<2;++i)
 		for(size_t j=0;j<2;++j)
 			x[i]+=_p[i][j]*V(j);
-	return Vtr2(x);
+	return vtr2(x);
 }
 
 //
-Pnt2 Trf2::operator*(const Pnt2 &P) const
+pnt2 Trf2::operator*(const pnt2 &P) const
 {
 	double x[2]={0.,0.};
 	for(size_t i=0;i<2;++i)
 		for(size_t j=0;j<2;++j)
 			x[i]+=_p[i][j]*P(j);
-	return Pnt2(x);
+	return pnt2(x);
 }
 //
 Trf2 Trf2::operator*(const Trf2 &T) const
@@ -70,13 +70,13 @@ Trf2 Trf2::inv() const
 
 
 //resolve predef
-Vtr2 Vtr2::operator*=(const Trf2 &T)
+vtr2 vtr2::operator*=(const Trf2 &T)
 {
 	return *this=T*(*this);
 }
 
 //resolve predef
-Pnt2 Pnt2::operator*=(const Trf2 &T)
+pnt2 pnt2::operator*=(const Trf2 &T)
 {
 	return *this=T*(*this);
 }

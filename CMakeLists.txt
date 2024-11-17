@@ -17,7 +17,6 @@ target_include_directories(weiss2 PUBLIC
     ./weiss2 ./weiss2/headers
     ${modules_dir}/tlbx ${modules_dir}/tlbx/headers
     ${modules_dir}/arr ${modules_dir}/arr/headers)
-
 target_compile_features(weiss2 PRIVATE cxx_std_17)
 set_target_properties(weiss2 PROPERTIES LINKER_LANGUAGE CXX)
 
