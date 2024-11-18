@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10) # required
 project(weiss)  # project name
 
-if(${CMAKE_PROJECT_NAME} STREQUAL "weiss")
+if(${CMAKE_PROJECT_NAME} STREQUAL ${PROJECT_NAME})
     set(modules_dir "")
 else()
     set(modules_dir "${CMAKE_SOURCE_DIR}/")
@@ -15,7 +15,7 @@ add_library(weiss2 STATIC ${cpp_srcs2})
 target_link_libraries(weiss2 PRIVATE tlbx arr)
 target_include_directories(weiss2
     PUBLIC
-        weiss2 weiss2/headers
+        ${PROJECT_SOURCE_DIR}/weiss2 ${PROJECT_SOURCE_DIR}/weiss2/headers
     PRIVATE
         ${modules_dir}tlbx ${modules_dir}tlbx/headers
         ${modules_dir}arr ${modules_dir}arr/headers)
@@ -30,8 +30,8 @@ add_library(weiss3 STATIC ${cpp_srcs3})
 target_link_libraries(weiss3 PRIVATE tlbx arr)
 target_include_directories(weiss3
     PUBLIC
-        weiss2 weiss2/headers
-        weiss3 weiss3/headers
+        ${PROJECT_SOURCE_DIR}/weiss2 ${PROJECT_SOURCE_DIR}/weiss2/headers
+        ${PROJECT_SOURCE_DIR}/weiss3 ${PROJECT_SOURCE_DIR}/weiss3/headers
     PRIVATE
         ${modules_dir}tlbx ${modules_dir}tlbx/headers
         ${modules_dir}arr ${modules_dir}arr/headers)
@@ -40,19 +40,22 @@ set_target_properties(weiss3 PROPERTIES LINKER_LANGUAGE CXX)
 
 # weiss
 set(cpp_srcs weiss.hpp weiss2/weiss2.hpp weiss3/weiss3.hpp)
-add_library(weiss STATIC ${cpp_srcs})
+add_library(${PROJECT_NAME} STATIC ${cpp_srcs})
 target_link_libraries(weiss PUBLIC weiss2 weiss3)
 target_include_directories(weiss
     PUBLIC
-        .
-        weiss2 weiss2/headers
-        weiss3 weiss3/headers)
-target_compile_features(weiss PRIVATE cxx_std_17)
-set_target_properties(weiss PROPERTIES LINKER_LANGUAGE CXX)
+        ${PROJECT_SOURCE_DIR}
+        ${PROJECT_SOURCE_DIR}/weiss2 ${PROJECT_SOURCE_DIR}/weiss2/headers
+        ${PROJECT_SOURCE_DIR}/weiss3 ${PROJECT_SOURCE_DIR}/weiss3/headers
+    PRIVATE
+        ${modules_dir}tlbx ${modules_dir}tlbx/headers
+        ${modules_dir}arr ${modules_dir}arr/headers)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 
 # submodules
 message(STATUS "project ${CMAKE_PROJECT_NAME}")
-if(${CMAKE_PROJECT_NAME} STREQUAL "weiss")
+if(${CMAKE_PROJECT_NAME} STREQUAL ${PROJECT_NAME})
     add_subdirectory(tlbx)
     add_subdirectory(arr)
 endif()
