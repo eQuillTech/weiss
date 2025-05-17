@@ -60,6 +60,6 @@ inline double cross(const vtr2 &V1,const vtr2 &V2){return V1.cross(V2);}
 inline double len(const vtr2 &V){return V.len();}
 inline vtr2 norm(const vtr2 &V){return V.norm();}
 
-typedef arr::arr1<vtr2> Vtr2_arr1;
+typedef arr::arr1<vtr2> vtr2_arr1;
 
 #endif
