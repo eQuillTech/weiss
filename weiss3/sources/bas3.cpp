@@ -8,7 +8,7 @@
 #include "weiss3.hpp"
 
 const bas3 bas3::Bo(vtr3::Vo,vtr3::Vo,vtr3::Vo);
-const bas3 bas3::Bxyz(vtr3::Vx,vtr3::Vy,vtr3::Vz);
+const bas3 bas3::Bunit(vtr3::Vx,vtr3::Vy,vtr3::Vz);
 
 //
 bas3::bas3(const arr::darr2 &D)

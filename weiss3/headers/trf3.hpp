@@ -55,7 +55,6 @@ public:
 	friend trf3 operator/(double x,const trf3 &T);
 
 	static const trf3 To;
-	
 	operator simd::float3x3();
 };
 

@@ -7,7 +7,6 @@
 
 //predef(s)
 class vtr3;
-class Axs3;
 
 //indx
 class idx3:public crd3

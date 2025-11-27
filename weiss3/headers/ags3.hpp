@@ -19,7 +19,7 @@ class idx3;
 class trf3;
 class atr3;
 
-//Axs3
+//Ags3
 class ags3
 {
 protected:
@@ -29,7 +29,6 @@ protected:
 public:
 	ags3():_b(bas3::Bo),_p(pnt3::Po){}
 	ags3(const bas3 &b,const pnt3 &p):_b(b),_p(p){}
-	
 	bas3 &B(){return _b;}
 	bas3 const &B() const{return _b;}
 
@@ -59,7 +58,7 @@ public:
 	bool isIn(const pnt3 &P) const;
 	operator simd::float4x4();
 
-	static const ags3 Ao;
+	static const ags3 Ao,Axyz;
 };
 
 ags3 operator*(double x,const ags3 &A);

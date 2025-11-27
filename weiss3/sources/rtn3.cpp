@@ -59,13 +59,15 @@ rtn3::rtn3(const vtr3 &V,const vtr3 &Vp):trf3()
 	double Lprod=V.len()*Vp.len();
 	if(Lprod>0.)
 	{
-		double angle=acos(V.dot(Vp)/Lprod);
+		double angle=trg::acs(V.dot(Vp)/Lprod);
 		vtr3 axisV=V.cross(Vp)/Lprod;
 		if(axisV.len()>0.)
 			*this=rtn(axisV,angle);
 		else
 			*this=trf3::ident();
 	}
+	else
+			*this=trf3::ident();
 }
 
 //

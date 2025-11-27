@@ -19,7 +19,9 @@ protected:
 	vtr3 _p[3];
 	
 public:
-	bas3(const vtr3 &a=vtr3::Vo,const vtr3 &b=vtr3::Vo,const vtr3 &c=vtr3::Vo){_p[0]=a;_p[1]=b;_p[2]=c;}
+
+	bas3(const vtr3 &a,const vtr3 &b,const vtr3 &c){_p[0]=a;_p[1]=b;_p[2]=c;}
+	bas3(){_p[0]=_p[1]=_p[2]=vtr3::Vo;}
 	bas3(const vtr3 V[]):bas3(V[0],V[1],V[2]){}
 	bas3(const arr::darr2 &D);
 	
@@ -60,7 +62,7 @@ public:
 	double vol() const;
 	
 	static const bas3 Bo;
-	static const bas3 Bxyz;
+	static const bas3 Bunit;
 };
 
 bas3 operator*(double x,const bas3 &A);
