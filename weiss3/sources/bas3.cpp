@@ -10,7 +10,6 @@
 const bas3 bas3::Bo(vtr3::Vo,vtr3::Vo,vtr3::Vo);
 const bas3 bas3::Bunit(vtr3::Vx,vtr3::Vy,vtr3::Vz);
 
-//
 bas3::bas3(const arr::darr2 &D)
 {
 	if((D.size(0)==3)&&(D.size(1)==3))
@@ -23,7 +22,6 @@ bas3::bas3(const arr::darr2 &D)
 		arr::err=-1;
 }
 
-//
 bas3::operator arr::darr2() const
 {
 	arr::darr2 A=arr::darr2::ident(3,3);
@@ -33,13 +31,11 @@ bas3::operator arr::darr2() const
 	return A;
 }
 
-//
 idx3 bas3::dot(const vtr3 &V) const
 {
 	return idx3(_p[0].dot(V),_p[1].dot(V),_p[2].dot(V));
 }
 
-//
 vtr3 bas3::operator*(const idx3 &I) const
 {
 	vtr3 V=vtr3::Vo;

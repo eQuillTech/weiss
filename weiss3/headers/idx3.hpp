@@ -38,7 +38,7 @@ public:
 	static const idx3 I010;
 	static const idx3 I001;
 	static const idx3 I111;
-
+	static const idx3 Imid;
 	//
 	//Axs3 operator*(const vtr3 &V) const;
 

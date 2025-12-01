@@ -11,6 +11,7 @@ const idx3 idx3::I100(1.,0.,0.);
 const idx3 idx3::I010(0.,1.,0.);
 const idx3 idx3::I001(0.,0.,1.);
 const idx3 idx3::I111(1.,1.,1.);
+const idx3 idx3::Imid(0.5,0.5,0.5);
 
 //
 std::ostream& operator<<(std::ostream &os,const idx3 &I)

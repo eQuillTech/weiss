@@ -48,7 +48,7 @@ public:
 	ags3 operator/=(const atr3 &T);
 	
 	atr3 to(const ags3 &A) const;
-	atr3 operator/(const ags3 &A) const{return to(A);}
+	atr3 operator/(const ags3 &A) const;//{return to(A);}
 
 	idx3 operator()(const pnt3 &P) const;
 	friend std::ostream& operator<<(std::ostream &os,const ags3 &A);

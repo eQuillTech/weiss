@@ -19,19 +19,16 @@ ags3::operator arr::darr2() const
 	return D;
 }
 
-//
 pnt3 ags3::operator*(const idx3 &I) const
 {
 	return _p+_b*I;
 }
 
-//
 idx3 ags3::dot(const pnt3 &P) const
 {
 	return _b*(P-_p);
 }
 
-//
 ags3 ags3::recip() const
 {
 	bas3 iB=_b.recip();
@@ -40,20 +37,17 @@ ags3 ags3::recip() const
 	return ags3(iB,iP);
 }
 
-//
 idx3 ags3::operator()(const pnt3 &P) const
 {
 	return recip()*P;
 }
 
-//
 std::ostream& operator<<(std::ostream &os,const ags3 &A)
 {
 	os<<A.B()<<"\n"<<A.p()<<"\n";
 	return os;
 }
 
-//
 atr3 ags3::to(const ags3 &A) const
 {
 
@@ -68,19 +62,21 @@ atr3 ags3::to(const ags3 &A) const
 	*/
 }
 
-//
+atr3 ags3::operator/(const ags3 &A) const
+{
+	return to(A);
+}
+	
 ags3 operator*(double x,const ags3 &A)
 {
 	return ags3(x*A.B(),pnt3::Po+x*(A.p()-pnt3::Po));
 }
 
-//
 ags3 recip(ags3 A)
 {
 	return A.recip();
 }
 
-//
 bool ags3::isIn(const pnt3 &P) const
 {
 	idx3 I=dot(P);
@@ -90,7 +86,6 @@ bool ags3::isIn(const pnt3 &P) const
 	return inA&&inB&&inC;
 }
 
-//
 ags3 ags3::operator*=(const atr3 &T)
 {
 	return *this=T*(*this);
