@@ -33,13 +33,14 @@ ags3 ags3::recip() const
 {
 	bas3 iB=_b.recip();
 	vtr3 V=_p-pnt3::Po;
-	pnt3 iP=pnt3::Po+vtr3(iB.a().dot(V),iB.b().dot(V),iB.c().dot(V));
+	pnt3 iP=pnt3::Po-vtr3(iB.a().dot(V),iB.b().dot(V),iB.c().dot(V));
 	return ags3(iB,iP);
 }
 
 idx3 ags3::operator()(const pnt3 &P) const
 {
-	return recip()*P;
+	auto iA=recip();
+	return iA.B()*(P-_p);
 }
 
 std::ostream& operator<<(std::ostream &os,const ags3 &A)
