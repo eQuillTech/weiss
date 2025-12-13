@@ -13,14 +13,12 @@ const idx3 idx3::I001(0.,0.,1.);
 const idx3 idx3::I111(1.,1.,1.);
 const idx3 idx3::Imid(0.5,0.5,0.5);
 
-//
 std::ostream& operator<<(std::ostream &os,const idx3 &I)
 {
 	os<<"("<<I.h()<<","<<I.k()<<","<<I.l()<<")";
 	return os;
 }
 
-//
 idx3 idx3::round() const
 {
 	idx3 I;
@@ -35,5 +33,15 @@ Axs3 idx3::operator*(const vtr3 &V) const
 	return Axs3(_x*V,_y*V,_z*V,pnt3::Po);
 }
 */
-//
+
 idx3 round(const idx3 &I){return I.round();}
+
+bool idx3::operator==(const idx3 &I) const
+{
+	return (_x==I._x)&&(_y==I._y)&&(_z==I._z);
+}
+
+bool idx3::operator!=(const idx3 &I) const
+{
+	return !((*this)==I);
+}

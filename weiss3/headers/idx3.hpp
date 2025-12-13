@@ -32,6 +32,8 @@ public:
 	idx3 operator-(const idx3 &I) const{return idx3(crd3::operator-(I));}
 	idx3 operator+=(const idx3 &I){return *this=*this+I;}
 	idx3 operator-=(const idx3 &I) {return *this=*this-I;}
+	bool operator==(const idx3 &I) const;
+	bool operator!=(const idx3 &I) const;
 
 	static const idx3 I000;
 	static const idx3 I100;
@@ -48,5 +50,13 @@ public:
 
 idx3 round(const idx3 &I3);
 
+namespace std {
+	template<>
+	struct hash<idx3> {
+		std::size_t operator()(const idx3& I) const noexcept {
+			return I.hash();
+		}
+	};
+}
 
 #endif

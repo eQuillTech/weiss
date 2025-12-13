@@ -80,7 +80,7 @@ ags3 recip(ags3 A)
 
 bool ags3::isIn(const pnt3 &P) const
 {
-	idx3 I=dot(P);
+	idx3 I=(*this)(P);
 	double inA=(I.h()>=0.)&&(I.h()<=1.);
 	double inB=(I.k()>=0.)&&(I.k()<=1.);
 	double inC=(I.l()>=0.)&&(I.l()<=1.);
