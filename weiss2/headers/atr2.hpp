@@ -35,7 +35,7 @@ public:
 	atr2 operator*=(const atr2 &T){return *this=T*(*this);}
 	atr2 operator/=(const atr2 &T){return *this=*this/T;}
 
-	operator arr::darr2() const;
+	operator arr::dbl2() const;
 
 	trf2 &A(){return _t;}
 	vtr2 &b(){return _v;}

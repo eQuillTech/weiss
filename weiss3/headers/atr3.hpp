@@ -41,7 +41,7 @@ public:
 	atr3 operator*=(const atr3 &T){return *this=T*(*this);}
 	atr3 operator/=(const atr3 &T){return *this=*this/T;}
 
-	operator arr::darr2() const;
+	operator arr::dbl2() const;
 	friend std::ostream& operator<<(std::ostream &os,const atr3 &T);
 
 	trf3 &A(){return _t;}

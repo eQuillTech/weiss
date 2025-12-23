@@ -28,7 +28,7 @@ protected:
 public:
 	constexpr trf2():_00(0.),_01(0.),_10(0.),_11(0.){}
 	constexpr trf2(const double x[2][2]):_00(x[0][0]),_01(x[0][1]),_10(x[1][0]),_11(x[1][1]){}
-	trf2(const arr::darr2 &D);
+	trf2(const arr::dbl2 &D);
 
 //
 	vtr2 operator*(const vtr2 &V) const;
@@ -39,7 +39,7 @@ public:
 	trf2 operator*=(const trf2 &T){return *this=*this*T;}
 	trf2 operator/=(const trf2 &T){return *this=*this/T;}
 
-	operator arr::darr2() const;
+	operator arr::dbl2() const;
 
 //
 	double &operator()(const size_t i,const size_t j){return _p[i][j];}

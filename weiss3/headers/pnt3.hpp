@@ -24,7 +24,7 @@ public:
 	explicit pnt3(const crd3 &C):crd3(C){}
 	constexpr pnt3():crd3(){}
 	constexpr pnt3(double x,double y,double z):crd3(x,y,z){}
-	pnt3(const arr::darr1 &A):crd3(A){}
+	pnt3(const arr::dbl1 &A):crd3(A){}
 
 	pnt3 operator+(const vtr3 &V) const;
 	pnt3 operator-(const vtr3 &V) const;

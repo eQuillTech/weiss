@@ -6,7 +6,7 @@
 #include "tlbx.hpp"
 #include "weiss3.hpp"
 
-crd3::crd3(const arr::darr1 &A)
+crd3::crd3(const arr::dbl1 &A)
 {
 	if(A.size()==3)
 	{
@@ -18,9 +18,9 @@ crd3::crd3(const arr::darr1 &A)
 }
 
 //
-crd3::operator arr::darr1() const
+crd3::operator arr::dbl1() const
 {
-	arr::darr1 d(3);
+	arr::dbl1 d(3);
 	d(0)=_x;d(1)=_y;d(2)=_z;
 	return d;
 }

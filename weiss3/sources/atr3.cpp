@@ -11,11 +11,11 @@ using namespace std;
 
 const atr3 atr3::Ato=atr3();
 
-atr3::operator arr::darr2() const
+atr3::operator arr::dbl2() const
 {
-	arr::darr2 A=arr::darr2::ident(4,4);
-	A.sub(0,0,3,3)=arr::darr2(_t);
-	A.sub(0,3,3,1)=arr::darr1(_v);
+	arr::dbl2 A=arr::dbl2::ident(4,4);
+	A.sub(0,0,3,3)=arr::dbl2(_t);
+	A.sub(0,3,3,1)=arr::dbl1(_v);
 	return A;
 }
 

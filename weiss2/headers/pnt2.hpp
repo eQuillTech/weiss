@@ -23,7 +23,7 @@ public:
 	constexpr pnt2(double x,double y):crd2(x,y){}
 	pnt2(const double x[2]):crd2(x){}
 	pnt2(const crd2 &C):crd2(C){}
-	pnt2(const arr::darr1 &A):crd2(A){}
+	pnt2(const arr::dbl1 &A):crd2(A){}
 
 	pnt2 operator+(const vtr2 &V) const;
 	pnt2 operator-(const vtr2 &V) const;

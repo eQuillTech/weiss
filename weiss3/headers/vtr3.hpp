@@ -26,7 +26,7 @@ public:
 	constexpr vtr3():crd3(){}
 	constexpr vtr3(double x,double y,double z):crd3(x,y,z){}
 	constexpr vtr3(const double x[3]):crd3(x){}
-	vtr3(const arr::darr1 &A):crd3(A){}
+	vtr3(const arr::dbl1 &A):crd3(A){}
 	vtr3(const vtr3 &V):crd3(V){}
 	vtr3(const VtrDir &dir);
 	
@@ -56,7 +56,7 @@ public:
 	vtr3 cross(const vtr3 &V) const;
 
 	double operator*(const vtr3 &v) const{return dot(v);}
-	vtr3 operator/(double x) const{return arr::darr1(*this)/x;}
+	vtr3 operator/(double x) const{return arr::dbl1(*this)/x;}
 
 	inline double sqrlen() const{return crd3::sqrlen();}
 	inline double len() const{return crd3::len();}

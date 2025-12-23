@@ -47,10 +47,10 @@ protected:
 public:
 	constexpr crd3(double x=0.,double y=0.,double z=0.):_x(x),_y(y),_z(z){}
 	constexpr crd3(const double x[3]):_x(x[0]),_y(x[1]),_z(x[2]){}
-	crd3(const arr::darr1 &A);
+	crd3(const arr::dbl1 &A);
 	std::size_t hash() const;
 
-	operator arr::darr1() const;
+	operator arr::dbl1() const;
 	
 	double& operator()(const size_t i0);
 	double const& operator()(const size_t i0) const;

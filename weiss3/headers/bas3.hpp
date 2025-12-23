@@ -23,7 +23,7 @@ public:
 	bas3(const vtr3 &a,const vtr3 &b,const vtr3 &c){_p[0]=a;_p[1]=b;_p[2]=c;}
 	bas3(){_p[0]=_p[1]=_p[2]=vtr3::Vo;}
 	bas3(const vtr3 V[]):bas3(V[0],V[1],V[2]){}
-	bas3(const arr::darr2 &D);
+	bas3(const arr::dbl2 &D);
 	
 	vtr3& a(){return _p[0];}
 	vtr3& b(){return _p[1];}
@@ -42,7 +42,7 @@ public:
 	bas3 operator+() const{return *this;}
 	bas3 operator-() const{return bas3(-_p[0],-_p[1],-_p[2]);}
 
-	operator arr::darr2() const;
+	operator arr::dbl2() const;
 
 	idx3 dot(const vtr3 &V) const;
 	idx3 operator*(const vtr3 &V) const{return dot(V);}

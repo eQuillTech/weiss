@@ -10,7 +10,7 @@
 const bas3 bas3::Bo(vtr3::Vo,vtr3::Vo,vtr3::Vo);
 const bas3 bas3::Bunit(vtr3::Vx,vtr3::Vy,vtr3::Vz);
 
-bas3::bas3(const arr::darr2 &D)
+bas3::bas3(const arr::dbl2 &D)
 {
 	if((D.size(0)==3)&&(D.size(1)==3))
 	{
@@ -22,9 +22,9 @@ bas3::bas3(const arr::darr2 &D)
 		arr::err=-1;
 }
 
-bas3::operator arr::darr2() const
+bas3::operator arr::dbl2() const
 {
-	arr::darr2 A=arr::darr2::ident(3,3);
+	arr::dbl2 A=arr::dbl2::ident(3,3);
 	for(size_t i=0;i<3;++i)
 		for(size_t j=0;j<3;++j)
 			A(i,j)=_p[i](j);

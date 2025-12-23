@@ -25,7 +25,7 @@ public:
 	
 	idx3():crd3(){}
 	idx3(const double h,const double k,const double l):crd3(h,k,l){}
-	idx3(const arr::darr1 &D):crd3(D){}
+	idx3(const arr::dbl1 &D):crd3(D){}
 
 	idx3 round() const;
 	idx3 operator+(const idx3 &I) const{return idx3(crd3::operator+(I));}

@@ -9,9 +9,9 @@
 
 const ags3 ags3::Ao(bas3::Bo,pnt3::Po);
 
-ags3::operator arr::darr2() const
+ags3::operator arr::dbl2() const
 {
-	arr::darr2 D=arr::darr2::ident(4,4);
+	arr::dbl2 D=arr::dbl2::ident(4,4);
 	D.sub(0,0,3,3)=_b;
 	D(0,3)=_p(0);
 	D(1,3)=_p(1);

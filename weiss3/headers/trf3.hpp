@@ -21,7 +21,7 @@ protected:
 	
 public:
 	trf3();
-	trf3(const arr::darr2 &D);
+	trf3(const arr::dbl2 &D);
 	trf3(const double p[3][3]);
 
 	vtr3 operator*(const vtr3 &V) const noexcept;
@@ -39,7 +39,7 @@ public:
 	trf3 operator+() const{return *this;}
 	trf3 operator-() const;
 
-	operator arr::darr2() const;
+	operator arr::dbl2() const;
 	double &operator()(const size_t i,const size_t j){return _p[i][j];}
 	double const &operator()(const size_t i,const size_t j) const{return _p[i][j];}
 

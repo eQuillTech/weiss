@@ -38,7 +38,7 @@ public:
 	ags3 &A(){return *this;}
 	const ags3 &A() const{return *this;}
 
-	operator arr::darr2() const;
+	operator arr::dbl2() const;
 
 	idx3 dot(const pnt3 &P) const;
 	idx3 operator*(const pnt3 &P) const{return dot(P);}

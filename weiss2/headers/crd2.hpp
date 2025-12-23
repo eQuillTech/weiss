@@ -42,9 +42,9 @@ protected:
 public:
 	constexpr crd2(double x=0.,double y=0.):_x(x),_y(y){}
 	constexpr crd2(const double x[2]):_x(x[0]),_y(x[1]){}
-	crd2(const arr::darr1 &A);
+	crd2(const arr::dbl1 &A);
 	
-	operator arr::darr1() const;
+	operator arr::dbl1() const;
 	double& x(){return _x;}
 	double& y(){return _y;}
 	

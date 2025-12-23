@@ -18,7 +18,7 @@ public:
 	constexpr vtr2():crd2(){}
 	constexpr vtr2(double x,double y):crd2(x,y){}
 	vtr2(const double x[2]):crd2(x){}
-	vtr2(const arr::darr1 &A):crd2(A){}
+	vtr2(const arr::dbl1 &A):crd2(A){}
 	vtr2(const vtr2 &V):crd2(V){}
 	
 	vtr2 operator+() const{return *this;}
@@ -39,7 +39,7 @@ public:
 	double cross(const vtr2 &V) const;
 
 	double operator*(const vtr2 &v) const{return dot(v);}
-	vtr2 operator/(double x) const{return arr::darr1(*this)/x;}
+	vtr2 operator/(double x) const{return arr::dbl1(*this)/x;}
 
 	inline double sqrlen() const{return crd2::sqrlen();}
 	inline double len() const{return crd2::len();}

@@ -12,7 +12,7 @@ using namespace std;
 constexpr const trf2 trf2::To=trf2::ident();
 
 //
-trf2::trf2(const arr::darr2 &D)
+trf2::trf2(const arr::dbl2 &D)
 {
 	if((D.size(0)==2)&&(D.size(1)==2))
 		for(size_t i=0;i<2;++i)
@@ -23,9 +23,9 @@ trf2::trf2(const arr::darr2 &D)
 }
 
 //
-trf2::operator arr::darr2() const
+trf2::operator arr::dbl2() const
 {
-	arr::darr2 A(3,3);
+	arr::dbl2 A(3,3);
 	for(size_t i=0;i<2;++i)
 		for(size_t j=0;j<2;++j)
 			A(i,j)=_p[i][j];
@@ -65,7 +65,7 @@ trf2 trf2::operator*(const trf2 &T) const
 //
 trf2 trf2::inv() const
 {
-	return arr::darr2(*this).inv();
+	return arr::dbl2(*this).inv();
 }
 
 

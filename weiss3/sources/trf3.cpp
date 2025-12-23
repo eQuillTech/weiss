@@ -16,7 +16,7 @@ trf3::trf3()
 			_p[i][j]=0;
 }
 
-trf3::trf3(const arr::darr2 &D)
+trf3::trf3(const arr::dbl2 &D)
 {
 	if((D.size(0)==3)&&(D.size(1)==3))
 		for(size_t i=0;i<3;++i)
@@ -31,9 +31,9 @@ trf3::trf3(const double p[3][3])
 	memcpy(_p,p,9*sizeof(double));
 }
 
-trf3::operator arr::darr2() const
+trf3::operator arr::dbl2() const
 {
-	arr::darr2 A(3,3);
+	arr::dbl2 A(3,3);
 	for(size_t i=0;i<3;++i)
 		for(size_t j=0;j<3;++j)
 			A(i,j)=_p[i][j];
@@ -62,7 +62,7 @@ trf3 trf3::operator*(const trf3 &T) const
 
 trf3 trf3::inv() const
 {
-	return arr::darr2(*this).inv();
+	return arr::dbl2(*this).inv();
 }
 
 
@@ -105,7 +105,7 @@ trf3 operator/(double x,const trf3 &T)
 //static
 trf3 trf3::ident()
 {
-	return arr::darr2::ident(3,3);
+	return arr::dbl2::ident(3,3);
 }
 
 trf3::operator simd::float3x3()
