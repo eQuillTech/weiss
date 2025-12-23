@@ -9,7 +9,6 @@
 
 const trf3 trf3::To(trf3::ident());
 
-//
 trf3::trf3()
 {
 	for(size_t i=0;i<3;++i)
@@ -17,7 +16,6 @@ trf3::trf3()
 			_p[i][j]=0;
 }
 
-//
 trf3::trf3(const arr::darr2 &D)
 {
 	if((D.size(0)==3)&&(D.size(1)==3))
@@ -28,13 +26,11 @@ trf3::trf3(const arr::darr2 &D)
 		arr::err=-1;
 }
 
-//
 trf3::trf3(const double p[3][3])
 {
 	memcpy(_p,p,9*sizeof(double));
 }
 
-//
 trf3::operator arr::darr2() const
 {
 	arr::darr2 A(3,3);
@@ -54,7 +50,6 @@ trf3 trf3::operator+(const trf3 &T) const
 	return Tp;
 }
 
-//
 trf3 trf3::operator*(const trf3 &T) const
 {
 	trf3 Tp;
@@ -65,14 +60,12 @@ trf3 trf3::operator*(const trf3 &T) const
 	return Tp;
 }
 
-//
 trf3 trf3::inv() const
 {
 	return arr::darr2(*this).inv();
 }
 
 
-//
 vtr3 trf3::operator*(const vtr3 &V) const noexcept
 {
 	double x[3]={0.,0.,0.};
@@ -82,6 +75,11 @@ vtr3 trf3::operator*(const vtr3 &V) const noexcept
 	return vtr3(x);
 }
 
+bas3 trf3::operator*(const bas3 &B) const
+{
+	return bas3(operator*(B.a()),operator*(B.b()),operator*(B.c()));
+}
+	
 //resolve predef
 vtr3 vtr3::operator*=(const trf3 &T)
 {
@@ -110,7 +108,6 @@ trf3 trf3::ident()
 	return arr::darr2::ident(3,3);
 }
 
-//
 trf3::operator simd::float3x3()
 {
 	using simd::float3;
@@ -126,13 +123,6 @@ trf3 trf3::operator-() const
 	return -1.*(*this);
 }
 
-//
-bas3 trf3::operator*(const bas3 &B) const
-{
-	return bas3(operator*(B.a()),operator*(B.b()),operator*(B.c()));
-}
-
-//
 std::ostream& operator<<(std::ostream &os,const trf3 &T)
 {
 	for(size_t i=0;i<3;++i)

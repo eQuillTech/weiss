@@ -44,7 +44,6 @@ vtr3 bas3::operator*(const idx3 &I) const
 	return V;
 }
 
-//
 bas3 bas3::recip() const
 {
 	double v=vol();
@@ -53,14 +52,12 @@ bas3 bas3::recip() const
 		V[i]=_p[mth::cyc(i+1,3)].cross(_p[mth::cyc(i+2,3)])/v;
 	return bas3(V);
 }
-	
-//
+
 double bas3::vol() const
 {
 	return a().dot(b().cross(c()));
 }
 
-//
 std::ostream& operator<<(std::ostream &os,const bas3 &A)
 {
 	os<<A.a()<<std::endl;
@@ -69,7 +66,6 @@ std::ostream& operator<<(std::ostream &os,const bas3 &A)
 	return os;
 }
 
-//
 trf3 bas3::dot(const bas3 &B) const
 {
 	trf3 T;
@@ -95,37 +91,31 @@ trf3 bas3::to(const bas3 &B) const
 	return T;
 }
 
-//
 bas3 bas3::operator/(const trf3 &T) const
 {
 	return T.inv()*(*this);
 }
 
-//
 bas3 bas3::operator*=(const trf3 &T)
 {
 	return *this=T*(*this);
 }
 
-//
 bas3 bas3::operator/=(const trf3 &T)
 {
 	return *this=(*this)/T;
 }
 
-//
 bas3 operator*(double x,const bas3 &A)
 {
 	return bas3(x*A(0),x*A(1),x*A(2));
 }
 
-//
 bas3 recip(bas3 A)
 {
 	return A.recip();
 }
 
-//
 double vol(const bas3 &A)
 {
 	return A.vol();

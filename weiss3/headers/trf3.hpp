@@ -24,9 +24,9 @@ public:
 	trf3(const arr::darr2 &D);
 	trf3(const double p[3][3]);
 
-//
 	vtr3 operator*(const vtr3 &V) const noexcept;
-
+	bas3 operator*(const bas3 &B) const;
+	
 	trf3 operator+(const trf3 &T) const;
 	trf3 operator-(const trf3 &T) const{return -T+(*this);}
 	trf3 operator*(const trf3 &T) const;
@@ -40,9 +40,6 @@ public:
 	trf3 operator-() const;
 
 	operator arr::darr2() const;
-	bas3 operator*(const bas3 &B) const;
-
-//
 	double &operator()(const size_t i,const size_t j){return _p[i][j];}
 	double const &operator()(const size_t i,const size_t j) const{return _p[i][j];}
 

@@ -6,14 +6,11 @@
 #include "tlbx.hpp"
 #include "weiss3.hpp"
 
-using namespace std;
-
-//
 crd3::crd3(const arr::darr1 &A)
 {
 	if(A.size()==3)
 	{
-		for(size_t i=0;i<3;++i)
+		for(std::size_t i=0;i<3;++i)
 			_p[i]=A(i);
 	}
 	else
@@ -49,7 +46,7 @@ double const& crd3::operator()(const size_t i) const
 }
 
 //friend
-ostream& operator<<(ostream &os,const crd3 &C)
+std::ostream& operator<<(std::ostream &os,const crd3 &C)
 {
 	os<<"("<<C.x()<<","<<C.y()<<","<<C.z()<<")";
 	return os;

@@ -92,7 +92,6 @@ ags3 ags3::operator*=(const atr3 &T)
 	return *this=T*(*this);
 }
 
-//
 ags3::operator simd::float4x4()
 {
 	using simd::float4;
