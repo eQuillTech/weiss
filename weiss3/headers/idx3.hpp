@@ -3,35 +3,34 @@
 #ifndef _IDX3_
 #define _IDX3_
 
-#include "arr.hpp"
+#include "dbl1.hpp"
 
-//predef(s)
+class crd3;
 class vtr3;
 
-//indx
 class idx3:public crd3
 {
 private:
-	explicit idx3(const crd3 &C):crd3(C){}
+	explicit idx3(const crd3 &C);
 
 public:
-	double& h(){return _x;}
-	double& k(){return _y;}
-	double& l(){return _z;}
+	double& h();
+	double& k();
+	double& l();
 	
-	double const& h() const{return _x;}
-	double const& k() const{return _y;}
-	double const& l() const{return _z;}
+	double const& h() const;
+	double const& k() const;
+	double const& l() const;
 	
-	idx3():crd3(){}
-	idx3(const double h,const double k,const double l):crd3(h,k,l){}
-	idx3(const arr::dbl1 &D):crd3(D){}
+	idx3();
+	idx3(const double h,const double k,const double l);
+	idx3(const arr::dbl1 &D);
 
 	idx3 round() const;
-	idx3 operator+(const idx3 &I) const{return idx3(crd3::operator+(I));}
-	idx3 operator-(const idx3 &I) const{return idx3(crd3::operator-(I));}
-	idx3 operator+=(const idx3 &I){return *this=*this+I;}
-	idx3 operator-=(const idx3 &I) {return *this=*this-I;}
+	idx3 operator+(const idx3 &I) const;
+	idx3 operator-(const idx3 &I) const;
+	idx3 operator+=(const idx3 &I);
+	idx3 operator-=(const idx3 &I);
 	bool operator==(const idx3 &I) const;
 	bool operator!=(const idx3 &I) const;
 
@@ -41,22 +40,18 @@ public:
 	static const idx3 I001;
 	static const idx3 I111;
 	static const idx3 Imid;
-	//
-	//Axs3 operator*(const vtr3 &V) const;
 
-//	fl_err read(tfl &T);
 	friend std::ostream& operator<<(std::ostream &os,const idx3 &I);
 };
 
 idx3 round(const idx3 &I3);
 
-namespace std {
-	template<>
-	struct hash<idx3> {
-		std::size_t operator()(const idx3& I) const noexcept {
-			return I.hash();
-		}
-	};
+namespace std
+{
+template<>
+struct hash<idx3> {
+	std::size_t operator()(const idx3& I) const noexcept;
+};
 }
 
 #endif

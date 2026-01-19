@@ -5,26 +5,23 @@
 
 #include <simd/simd.h>
 
-#include "arr.hpp"
+#include "dbl1.hpp"
 
-#ifndef _CRD3_
 #include "crd3.hpp"
-#endif
 
 class vtr3;
 class trf3;
 class atr3;
 
-//
 class pnt3:public crd3
 {
 private:
 
 public:
-	explicit pnt3(const crd3 &C):crd3(C){}
-	constexpr pnt3():crd3(){}
-	constexpr pnt3(double x,double y,double z):crd3(x,y,z){}
-	pnt3(const arr::dbl1 &A):crd3(A){}
+	explicit pnt3(const crd3 &C);
+	pnt3();
+	pnt3(double x,double y,double z);
+	pnt3(const arr::dbl1 &A);
 
 	pnt3 operator+(const vtr3 &V) const;
 	pnt3 operator-(const vtr3 &V) const;
@@ -44,13 +41,13 @@ public:
 
 	double dist() const;
 
-	double& x(){return _x;}
-	double& y(){return _y;}
-	double& z(){return _z;}
+	double& x();
+	double& y();
+	double& z();
 	
-	double const& x() const{return _x;}
-	double const& y() const{return _y;}
-	double const& z() const{return _z;}
+	double const& x() const;
+	double const& y() const;
+	double const& z() const;
 
 	static const pnt3 Po;
 	operator simd::float4();

@@ -1,15 +1,21 @@
 //3-D augmented transformations - P. Ahrenkiel
 
 #include <cstdlib>
-#include <math.h>
 
-#include "tlbx.hpp"
-#include "arr.hpp"
-#include "weiss3.hpp"
+#include "dbl2sub.hpp"
 
-using namespace std;
+#include "vtr3.hpp"
+#include "pnt3.hpp"
+#include "idx3.hpp"
+#include "ags3.hpp"
+#include "atr3.hpp"
 
 const atr3 atr3::Ato=atr3();
+
+atr3::atr3():_t(trf3::To),_v(vtr3::Vo){}
+atr3::atr3(const trf3 &T,const vtr3 &V):_t(T),_v(V){}
+atr3::atr3(const trf3 &T):_t(T),_v(vtr3::Vo){}
+atr3::atr3(const vtr3 &V):_t(trf3::To),_v(V){}
 
 atr3::operator arr::dbl2() const
 {
@@ -19,38 +25,37 @@ atr3::operator arr::dbl2() const
 	return A;
 }
 
-//
 atr3::atr3(const trf3 &T,const pnt3 &P):_t(T)
 {
 	_v=(trf3::ident()-T)*(P-pnt3::Po);
 }
 
-//
 vtr3 atr3::operator*(const vtr3 &V) const noexcept
 {
 	return _t*V;
 }
 
-//
 pnt3 atr3::operator*(const pnt3 &P) const noexcept
 {
 	return pnt3::Po+_t*(P-pnt3::Po)+_v;
 }
 
-//
 atr3 atr3::operator*(const atr3 &T) const
 {
 	return atr3(_t*T._t,_t*T._v+_v);
 }
 
-//
+atr3 atr3::operator/(const atr3 &T) const
+{
+	return T.inv()*(*this);
+}
+	
 atr3 atr3::inv() const
 {
 	trf3 iT=_t.inv();
 	return atr3(iT,iT*(-_v));
 }
 
-//
 ags3 atr3::operator*(const ags3 &A) const
 {
 	bas3 Bp=_t*A.B();
@@ -64,7 +69,6 @@ atr3 atr3::ident()
 	return atr3();
 }
 
-//
 atr3::operator simd::float4x4()
 {
 	using simd::float4;
@@ -77,9 +81,17 @@ atr3::operator simd::float4x4()
 	);
 }
 
-//
-ostream& operator<<(ostream &os,const atr3 &T)
+std::ostream& operator<<(std::ostream &os,const atr3 &T)
 {
 	os<<T.A()<<"\n"<<T.b()<<"\n";
 	return os;
 }
+
+
+atr3 atr3::operator*=(const atr3 &T){return *this=T*(*this);}
+atr3 atr3::operator/=(const atr3 &T){return *this=*this/T;}
+
+trf3 &atr3::A(){return _t;}
+vtr3 &atr3::b(){return _v;}
+trf3 const &atr3::A() const{return _t;}
+vtr3 const &atr3::b() const{return _v;}

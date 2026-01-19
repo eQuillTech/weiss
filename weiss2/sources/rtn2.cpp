@@ -3,18 +3,14 @@
 #include <cstdlib>
 #include <math.h>
 
-#include "tlbx.hpp"
-#include "arr.hpp"
-#include "weiss2.hpp"
+#include "vtr2.hpp"
+#include "trf2.hpp"
+#include "rtn2.hpp"
 
-using namespace std;
-
-//
 rtn2::rtn2(const rtn2 &R):trf2(R)
 {
 }
 
-//
 rtn2::rtn2(const vtr2 &V,const vtr2 &Vp):trf2()
 {
 	double magV=V.len();
@@ -27,7 +23,6 @@ rtn2::rtn2(const vtr2 &V,const vtr2 &Vp):trf2()
 	}
 }
 
-//
 rtn2::rtn2(const double angle):trf2()
 {
 	double c=cos(angle),s=sin(angle);
@@ -35,7 +30,6 @@ rtn2::rtn2(const double angle):trf2()
 	*this=trf2(u);
 }
 
-//
 rtn2::rtn2(const trf2 &T)
 {
 	for(size_t i=0;i<2;i++)
@@ -43,25 +37,20 @@ rtn2::rtn2(const trf2 &T)
 			_p[i][j]=T(i,j);
 }
 
-//
 rtn2 rtn2::operator*(const rtn2 &R) const
 {
 	return trf2(*this)*R;
 }
-
-//
 rtn2 rtn2::operator/(const rtn2 &R) const
 {
 	return trf2(*this)/R;
 }
 
-//
 rtn2 rtn2::operator/=(const rtn2 &R)
 {
 	return (*this)*=(*this)/R;
 }
 
-//
 rtn2 rtn2::inv() const
 {
 	return trf2(*this).inv();

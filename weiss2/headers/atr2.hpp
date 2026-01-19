@@ -9,15 +9,9 @@
 
 #include "arr.hpp"
 
-#ifndef _VTR2_
 #include "vtr2.hpp"
-#endif
-
-#ifndef _TRF2_
 #include "trf2.hpp"
-#endif
 
-//
 class atr2
 {
 protected:
@@ -25,22 +19,22 @@ protected:
 	vtr2 _v;
 	
 public:
-	atr2(const trf2 &T=trf2::To,const vtr2 &V=vtr2::Vo){_t=T;_v=V;}
+	atr2(const trf2 &T=trf2::To,const vtr2 &V=vtr2::Vo);
 
 	vtr2 operator*(const vtr2 &V) const;
 	pnt2 operator*(const pnt2 &P) const;
 
 	atr2 operator*(const atr2 &T) const;
 	atr2 operator/(const atr2 &T) const;
-	atr2 operator*=(const atr2 &T){return *this=T*(*this);}
-	atr2 operator/=(const atr2 &T){return *this=*this/T;}
+	atr2 operator*=(const atr2 &T);
+	atr2 operator/=(const atr2 &T);
 
 	operator arr::dbl2() const;
 
-	trf2 &A(){return _t;}
-	vtr2 &b(){return _v;}
-	trf2 const &A() const{return _t;}
-	vtr2 const &b() const{return _v;}
+	trf2 &A();
+	vtr2 &b();
+	trf2 const &A() const;
+	vtr2 const &b() const;
 
 	atr2 inv() const;
 	static atr2 ident();

@@ -1,11 +1,12 @@
 //3-D transformations - P. Ahrenkiel
 
 #include <cstdlib>
-#include <math.h>
 
-#include "tlbx.hpp"
-#include "arr.hpp"
-#include "weiss3.hpp"
+#include "dbl2.hpp"
+
+#include "vtr3.hpp"
+#include "trf3.hpp"
+#include "bas3.hpp"
 
 const trf3 trf3::To(trf3::ident());
 
@@ -26,6 +27,8 @@ trf3::trf3(const arr::dbl2 &D)
 		arr::err=-1;
 }
 
+trf3 trf3::operator+() const{return *this;}
+	
 trf3::trf3(const double p[3][3])
 {
 	memcpy(_p,p,9*sizeof(double));
@@ -40,7 +43,6 @@ trf3::operator arr::dbl2() const
 	return A;
 }
 
-//
 trf3 trf3::operator+(const trf3 &T) const
 {
 	trf3 Tp;
@@ -86,7 +88,6 @@ vtr3 vtr3::operator*=(const trf3 &T)
 	return *this=T*(*this);
 }
 
-//
 trf3 operator*(double x,const trf3 &T)
 {
 	trf3 Tp;
@@ -96,7 +97,6 @@ trf3 operator*(double x,const trf3 &T)
 	return Tp;
 }
 
-//
 trf3 operator/(double x,const trf3 &T)
 {
 	return x*T.inv();
@@ -131,3 +131,15 @@ std::ostream& operator<<(std::ostream &os,const trf3 &T)
 	}
 	return os;
 }
+
+trf3 trf3::operator-(const trf3 &T) const{return -T+(*this);}
+trf3 trf3::operator/(const trf3 &T) const{return T.inv()*(*this);}
+trf3 trf3::operator+=(const trf3 &T){return *this=*this+T;}
+trf3 trf3::operator-=(const trf3 &T){return *this=*this-T;}
+trf3 trf3::operator*=(const trf3 &T){return *this=*this*T;}
+trf3 trf3::operator/=(const trf3 &T){return *this=*this/T;}
+
+double &trf3::operator()(const size_t i,const size_t j){return _p[i][j];}
+double const &trf3::operator()(const size_t i,const size_t j) const{return _p[i][j];}
+
+trf3 trf3::T() const{return *this;}

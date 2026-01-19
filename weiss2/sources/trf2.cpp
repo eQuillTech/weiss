@@ -1,17 +1,31 @@
 //transformations - P. Ahrenkiel
 
 #include <cstdlib>
-#include <math.h>
 
-#include "tlbx.hpp"
-#include "arr.hpp"
-#include "weiss2.hpp"
+#include "dbl2.hpp"
+#include "vtr2.hpp"
+#include "pnt2.hpp"
+#include "trf2.hpp"
 
-using namespace std;
+const trf2 trf2::To=trf2::ident();
 
-constexpr const trf2 trf2::To=trf2::ident();
+trf2::trf2():_00(0.),_01(0.),_10(0.),_11(0.){}
+trf2::trf2(const double x[2][2]):_00(x[0][0]),_01(x[0][1]),_10(x[1][0]),_11(x[1][1]){}
 
-//
+trf2 trf2::operator/(const trf2 &T) const{return T.inv()*(*this);}
+trf2 trf2::operator*=(const trf2 &T){return *this=*this*T;}
+trf2 trf2::operator/=(const trf2 &T){return *this=*this/T;}
+
+double &trf2::operator()(const size_t i,const size_t j){return _p[i][j];}
+double const &trf2::operator()(const size_t i,const size_t j) const{return _p[i][j];}
+
+//static
+const trf2 trf2::ident()
+{
+	const double x[2][2]={{1.,0.},{0.,1.}};
+	return trf2(x);
+}
+	
 trf2::trf2(const arr::dbl2 &D)
 {
 	if((D.size(0)==2)&&(D.size(1)==2))
@@ -22,7 +36,6 @@ trf2::trf2(const arr::dbl2 &D)
 		arr::err=-1;
 }
 
-//
 trf2::operator arr::dbl2() const
 {
 	arr::dbl2 A(3,3);
@@ -32,7 +45,6 @@ trf2::operator arr::dbl2() const
 	return A;
 }
 
-//
 vtr2 trf2::operator*(const vtr2 &V) const
 {
 	double x[2]={0.,0.};
@@ -42,7 +54,6 @@ vtr2 trf2::operator*(const vtr2 &V) const
 	return vtr2(x);
 }
 
-//
 pnt2 trf2::operator*(const pnt2 &P) const
 {
 	double x[2]={0.,0.};
@@ -51,7 +62,7 @@ pnt2 trf2::operator*(const pnt2 &P) const
 			x[i]+=_p[i][j]*P(j);
 	return pnt2(x);
 }
-//
+
 trf2 trf2::operator*(const trf2 &T) const
 {
 	trf2 Tp;
@@ -62,7 +73,6 @@ trf2 trf2::operator*(const trf2 &T) const
 	return Tp;
 }
 
-//
 trf2 trf2::inv() const
 {
 	return arr::dbl2(*this).inv();
@@ -75,13 +85,11 @@ vtr2 vtr2::operator*=(const trf2 &T)
 	return *this=T*(*this);
 }
 
-//resolve predef
 pnt2 pnt2::operator*=(const trf2 &T)
 {
 	return *this=T*(*this);
 }
 
-//
 trf2 operator*(double x,const trf2 &T)
 {
 	trf2 Tp;
@@ -91,8 +99,8 @@ trf2 operator*(double x,const trf2 &T)
 	return Tp;
 }
 
-//
 trf2 operator/(double x,const trf2 &T)
 {
 	return x*T.inv();
 }
+

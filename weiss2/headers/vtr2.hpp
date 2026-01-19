@@ -3,52 +3,50 @@
 #ifndef _VTR2_
 #define _VTR2_
 
-#ifndef _ARR_
-#include "arr.hpp"
-#endif
+#include "dbl1.hpp"
+
+#include "crd2.hpp"
 
 class pnt2;
 class trf2;
 class atr2;
 
-//
 class vtr2:public crd2
 {
 public:
-	constexpr vtr2():crd2(){}
-	constexpr vtr2(double x,double y):crd2(x,y){}
-	vtr2(const double x[2]):crd2(x){}
-	vtr2(const arr::dbl1 &A):crd2(A){}
-	vtr2(const vtr2 &V):crd2(V){}
+	vtr2();
+	vtr2(double x,double y);
+	vtr2(const double x[2]);
+	vtr2(const arr::dbl1 &A);
+	vtr2(const vtr2 &V);
 	
-	vtr2 operator+() const{return *this;}
-	vtr2 operator-() const{return vtr2(-_x,-_y);}
+	vtr2 operator+() const;
+	vtr2 operator-() const;
 	
-	vtr2 operator+(const vtr2 &V) const{return vtr2(_x+V.x(),_y+V.y());}
-	vtr2 operator-(const vtr2 &V) const{return vtr2(_x-V.x(),_y-V.y());}
+	vtr2 operator+(const vtr2 &V) const;
+	vtr2 operator-(const vtr2 &V) const;
 
-	vtr2 operator+=(const vtr2 &V){return *this=(*this)+V;}
-	vtr2 operator-=(const vtr2 &V){return *this=(*this)-V;}
-	vtr2 operator*=(double x){return *this=x*(*this);}
-	vtr2 operator/=(double x){return *this=(*this)/x;}
+	vtr2 operator+=(const vtr2 &V);
+	vtr2 operator-=(const vtr2 &V);
+	vtr2 operator*=(double x);
+	vtr2 operator/=(double x);
 
-	bool operator==(const vtr2 &V) const{return crd2::operator==(V);}
-	bool operator!=(const vtr2 &V) const{return !((*this)==V);}
+	bool operator==(const vtr2 &V) const;
+	bool operator!=(const vtr2 &V) const;
 
-	double dot(const vtr2 &V) const{return _x*V._x+_y*V._y;}
+	double dot(const vtr2 &V) const;
 	double cross(const vtr2 &V) const;
 
-	double operator*(const vtr2 &v) const{return dot(v);}
-	vtr2 operator/(double x) const{return arr::dbl1(*this)/x;}
+	double operator*(const vtr2 &v) const;
+	vtr2 operator/(double x) const;
 
-	inline double sqrlen() const{return crd2::sqrlen();}
-	inline double len() const{return crd2::len();}
-	vtr2 norm() const{return (*this)/len();}
+	double sqrlen() const;
+	double len() const;
+	vtr2 norm() const;
 
 	friend std::ostream& operator<<(std::ostream &os,const vtr2 &V);
-	friend vtr2 operator*(double x,const vtr2 &v){return vtr2(x*v._x,x*v._y);}
+	friend vtr2 operator*(double x,const vtr2 &v);
 
-//predef
 	vtr2 operator*=(const trf2 &T);
 	vtr2 operator*=(const atr2 &T);
 

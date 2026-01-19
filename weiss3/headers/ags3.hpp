@@ -3,52 +3,44 @@
 #ifndef _AGS_
 #define _AGS_
 
-#include "tlbx.hpp"
-#include "arr.hpp"
-
-#ifndef _VTR3_
-#include "vtr3.hpp"
-#endif
-
-#ifndef _BAS3_
 #include "bas3.hpp"
-#endif
+#include "pnt3.hpp"
 
-class pnt3;
+class vtr3;
 class idx3;
 class trf3;
 class atr3;
 
-//Ags3
 class ags3
 {
 protected:
 	bas3 _b;
-	pnt3 _p;//translation
+	pnt3 _p;
 
 public:
-	ags3():_b(bas3::Bo),_p(pnt3::Po){}
-	ags3(const bas3 &b,const pnt3 &p):_b(b),_p(p){}
-	bas3 &B(){return _b;}
-	bas3 const &B() const{return _b;}
+	ags3();
+	ags3(const bas3 &b,const pnt3 &p);
+	
+	bas3 &B();
+	bas3 const &B() const;
 
-	pnt3 &p(){return _p;}
-	pnt3 const &p() const{return _p;}
+	pnt3 &p();
+	pnt3 const &p() const;
 
-	ags3 &A(){return *this;}
-	const ags3 &A() const{return *this;}
+	ags3 &A();
+	const ags3 &A() const;
 
 	operator arr::dbl2() const;
 
 	idx3 dot(const pnt3 &P) const;
-	idx3 operator*(const pnt3 &P) const{return dot(P);}
+	idx3 operator*(const pnt3 &P) const;
 	pnt3 operator*(const idx3 &I) const;
 	ags3 operator/(const trf3 &T) const;
 	ags3 operator*=(const atr3 &T);
 	ags3 operator/=(const atr3 &T);
 	
 	atr3 to(const ags3 &A) const;
-	atr3 operator/(const ags3 &A) const;//{return to(A);}
+	atr3 operator/(const ags3 &A) const;
 
 	idx3 operator()(const pnt3 &P) const;
 	friend std::ostream& operator<<(std::ostream &os,const ags3 &A);

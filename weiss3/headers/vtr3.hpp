@@ -5,69 +5,63 @@
 
 #include <simd/simd.h>
 
-#include "arr.hpp"
-
-#ifndef _CRD3_
+#include "dbl1.hpp"
 #include "crd3.hpp"
-#endif
 
 class pnt3;
 class trf3;
 class atr3;
-class VtrDir;
+class dir3;
 
-//
 class vtr3:public crd3
 {
 private:
-	explicit vtr3(const crd3 &C):crd3(C){}
+	explicit vtr3(const crd3 &C);
 	
 public:
-	constexpr vtr3():crd3(){}
-	constexpr vtr3(double x,double y,double z):crd3(x,y,z){}
-	constexpr vtr3(const double x[3]):crd3(x){}
-	vtr3(const arr::dbl1 &A):crd3(A){}
-	vtr3(const vtr3 &V):crd3(V){}
-	vtr3(const VtrDir &dir);
+	vtr3();
+	vtr3(double x,double y,double z);
+	vtr3(const double x[3]);
+	vtr3(const arr::dbl1 &A);
+	vtr3(const vtr3 &V);
+	vtr3(const dir3 &dir);
+	vtr3 operator+() const;
+	vtr3 operator-() const;
 	
-	vtr3 operator+() const{return *this;}
-	vtr3 operator-() const{return vtr3(-_x,-_y,-_z);}
-	
-	vtr3 operator+(const vtr3 &V) const{return vtr3(_x+V.x(),_y+V.y(),_z+V.z());}
-	vtr3 operator-(const vtr3 &V) const{return vtr3(_x-V.x(),_y-V.y(),_z-V.z());}
+	vtr3 operator+(const vtr3 &V) const;
+	vtr3 operator-(const vtr3 &V) const;
 
 	bool operator==(const vtr3  &V) const;
 	bool operator!=(const vtr3  &V) const;
 
-	vtr3 operator+=(const vtr3 &V){return *this=(*this)+V;}
-	vtr3 operator-=(const vtr3 &V){return *this=(*this)-V;}
-	vtr3 operator*=(double x){return *this=x*(*this);}
-	vtr3 operator/=(double x){return *this=(*this)/x;}
+	vtr3 operator+=(const vtr3 &V);
+	vtr3 operator-=(const vtr3 &V);
+	vtr3 operator*=(double x);
+	vtr3 operator/=(double x);
 
-	double& x(){return _x;}
-	double& y(){return _y;}
-	double& z(){return _z;}
+	double& x();
+	double& y();
+	double& z();
 	
-	double const& x() const{return _x;}
-	double const& y() const{return _y;}
-	double const& z() const{return _z;}
+	double const& x() const;
+	double const& y() const;
+	double const& z() const;
 
-	double dot(const vtr3 &V) const{return _x*V._x+_y*V._y+_z*V._z;}
+	double dot(const vtr3 &V) const;
 	vtr3 cross(const vtr3 &V) const;
 
-	double operator*(const vtr3 &v) const{return dot(v);}
-	vtr3 operator/(double x) const{return arr::dbl1(*this)/x;}
+	double operator*(const vtr3 &v) const;
+	vtr3 operator/(double x) const;
 
 	inline double sqrlen() const{return crd3::sqrlen();}
 	inline double len() const{return crd3::len();}
-	vtr3 norm() const{return (*this)/len();}
+	vtr3 norm() const;
 
 	friend std::ostream& operator<<(std::ostream &os,const vtr3 &V);
-	friend vtr3 operator*(double x,const vtr3 &V){return vtr3(x*V._x,x*V._y,x*V._z);}
+	friend vtr3 operator*(double x,const vtr3 &V);
 
 	vtr3 operator/(const trf3 &T);
 
-//predef
 	vtr3 operator*=(const trf3 &T);
 
 	static const vtr3 Vo,Vx,Vy,Vz;
@@ -79,20 +73,5 @@ inline double dot(const vtr3 &V1,const vtr3 &V2){return V1.dot(V2);}
 inline vtr3 cross(const vtr3 &V1,const vtr3 &V2){return V1.cross(V2);}
 inline double len(const vtr3 &V){return V.len();}
 inline vtr3 norm(const vtr3 &V){return V.norm();}
-
-//
-struct VtrDir
-{
-	vtr3 _axisZ=vtr3::Vz;
-	vtr3 _axisX=vtr3::Vx;
-	double _theta=0.;
-	double _phi=0.;
-	double _rho=0.;
-	
-	VtrDir():_theta(0.),_phi(0.),_rho(0.),_axisZ(vtr3::Vz),_axisX(vtr3::Vx){}
-	VtrDir(const vtr3 &Vz,const vtr3 &Vx,const double theta,const double phi,const double rho):_theta(theta),_phi(phi),_rho(rho),_axisZ(Vz),_axisX(Vx){}
-	
-	static const VtrDir Dir0;
-};
 
 #endif

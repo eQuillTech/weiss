@@ -1,30 +1,54 @@
 //vectors - P. Ahrenkiel
 
 #include <cstdlib>
-#include <math.h>
 
-#include "tlbx.hpp"
-#include "arr.hpp"
-#include "weiss2.hpp"
+#include "vtr2.hpp"
 
-using namespace std;
+const vtr2 vtr2::Vo(0.,0.);
+const vtr2 vtr2::Vx(1.,0.);
+const vtr2 vtr2::Vy(0.,1.);
 
-constexpr const vtr2 vtr2::Vo(0.,0.);
-constexpr const vtr2 vtr2::Vx(1.,0.);
-constexpr const vtr2 vtr2::Vy(0.,1.);
-
-//
 double vtr2::cross(const vtr2 &V) const
 {
 	return _x*V._y-_y*V._x;
 }
 
-//
-ostream& operator<<(ostream &os,const vtr2 &V)
+std::ostream& operator<<(std::ostream &os,const vtr2 &V)
 {
 	os<<"("<<V.x()<<","<<V.y()<<")";
 	return os;
 }
 
+vtr2::vtr2():crd2(){}
+vtr2::vtr2(double x,double y):crd2(x,y){}
+vtr2::vtr2(const double x[2]):crd2(x){}
+vtr2::vtr2(const arr::dbl1 &A):crd2(A){}
+vtr2::vtr2(const vtr2 &V):crd2(V){}
 
+vtr2 vtr2::operator+() const{return *this;}
+vtr2 vtr2::operator-() const{return vtr2(-_x,-_y);}
+
+vtr2 vtr2::operator+(const vtr2 &V) const{return vtr2(_x+V.x(),_y+V.y());}
+vtr2 vtr2::operator-(const vtr2 &V) const{return vtr2(_x-V.x(),_y-V.y());}
+
+vtr2 vtr2::operator+=(const vtr2 &V){return *this=(*this)+V;}
+vtr2 vtr2::operator-=(const vtr2 &V){return *this=(*this)-V;}
+vtr2 vtr2::operator*=(double x){return *this=x*(*this);}
+vtr2 vtr2::operator/=(double x){return *this=(*this)/x;}
+
+bool vtr2::operator==(const vtr2 &V) const{return crd2::operator==(V);}
+bool vtr2::operator!=(const vtr2 &V) const{return !((*this)==V);}
+
+double vtr2::dot(const vtr2 &V) const{return _x*V._x+_y*V._y;}
+
+double vtr2::operator*(const vtr2 &v) const{return dot(v);}
+vtr2 vtr2::operator/(double x) const{return arr::dbl1(*this)/x;}
+
+vtr2 vtr2::norm() const{return (*this)/len();}
+
+std::ostream& operator<<(std::ostream &os,const vtr2 &V);
+vtr2 operator*(double x,const vtr2 &v){return vtr2(x*v._x,x*v._y);}
+
+double vtr2::sqrlen() const{return crd2::sqrlen();}
+double vtr2::len() const{return crd2::len();}
 
