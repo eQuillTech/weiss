@@ -1,3 +1,20 @@
 The file "dbl1.hpp" from the library "arr" is included in the file "crd3.hpp" from the library "weiss3", which is part of "weiss".
 The libraries "weiss2", "weiss3", and "weiss" compile fine.
 When I compile "weiss_tests", I get the error 'dbl1.hpp' file not found. Why?
+
+Can I have CMake build the project weiss so that the weiss2 and weiss3 files are separated with weiss
+
+How can I make sure weiss2 and weiss3 are built before weiss is built? Also, weiss needs to built before weiss_tests is built.
+
+But when linking weiss_tests, I'm getting
+clang: error: no such file or directory: '/Users/phil3/Documents/Development/weiss/build/Debug/libweiss.a'
+
+I'm getting this message when building weiss_tests:
+Ignoring duplicate libraries: '/Users/phil3/Documents/Development/weiss/build/arr/Debug/libarr.a', '/Users/phil3/Documents/Development/weiss/build/tlbx/Debug/libtlbx.a'
+
+Can you fix this warning that appears when linking weiss_tests?
+
+Can you fix this message when building project weiss?
+Run script build phase 'Generate CMakeFiles/ALL_BUILD' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked.
+
+Why is the project showing "-- project weiss" three times on the terminal when building with CMake?

@@ -36,5 +36,3 @@ builds/
 *.out
 *.app
 
-tlbx/
-arr/
