@@ -5,15 +5,13 @@
 
 #include <simd/simd.h>
 
-#include "tlbx.hpp"
-#include "arr.hpp"
+#include "dbl2.hpp"
 
 class vtr3;
 class bas3;
 class rtn3;
 class scl3;
 
-//
 class trf3
 {
 protected:
@@ -28,22 +26,22 @@ public:
 	bas3 operator*(const bas3 &B) const;
 	
 	trf3 operator+(const trf3 &T) const;
-	trf3 operator-(const trf3 &T) const{return -T+(*this);}
+	trf3 operator-(const trf3 &T) const;
 	trf3 operator*(const trf3 &T) const;
-	trf3 operator/(const trf3 &T) const{return T.inv()*(*this);}
-	trf3 operator+=(const trf3 &T){return *this=*this+T;}
-	trf3 operator-=(const trf3 &T){return *this=*this-T;}
-	trf3 operator*=(const trf3 &T){return *this=*this*T;}
-	trf3 operator/=(const trf3 &T){return *this=*this/T;}
+	trf3 operator/(const trf3 &T) const;
+	trf3 operator+=(const trf3 &T);
+	trf3 operator-=(const trf3 &T);
+	trf3 operator*=(const trf3 &T);
+	trf3 operator/=(const trf3 &T);
 
-	trf3 operator+() const{return *this;}
+	trf3 operator+() const;
 	trf3 operator-() const;
 
 	operator arr::dbl2() const;
-	double &operator()(const size_t i,const size_t j){return _p[i][j];}
-	double const &operator()(const size_t i,const size_t j) const{return _p[i][j];}
+	double &operator()(const size_t i,const size_t j);
+	double const &operator()(const size_t i,const size_t j) const;
 
-	trf3 T() const{return *this;}
+	trf3 T() const;
 	trf3 inv() const;
 	static trf3 ident();
 

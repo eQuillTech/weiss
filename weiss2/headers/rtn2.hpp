@@ -3,10 +3,9 @@
 #ifndef _RTN2_
 #define _RTN2_
 
-class Vtr2;
+class vtr2;
 class trf2;
 
-//
 class rtn2:public trf2
 {
 

@@ -1,0 +1,3 @@
+The file "dbl1.hpp" from the library "arr" is included in the file "crd3.hpp" from the library "weiss3", which is part of "weiss".
+The libraries "weiss2", "weiss3", and "weiss" compile fine.
+When I compile "weiss_tests", I get the error 'dbl1.hpp' file not found. Why?

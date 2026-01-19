@@ -1,13 +1,16 @@
 //3-D points - P. Ahrenkiel
 
 #include <cstdlib>
-#include <math.h>
 
-#include "tlbx.hpp"
-#include "arr.hpp"
-#include "weiss3.hpp"
+#include "atr3.hpp"
+#include "vtr3.hpp"
+#include "pnt3.hpp"
 
-constexpr const pnt3 pnt3::Po(0.,0.,0.);
+const pnt3 pnt3::Po(0.,0.,0.);
+
+pnt3::pnt3():crd3(){}
+pnt3::pnt3(double x,double y,double z):crd3(x,y,z){}
+pnt3::pnt3(const arr::dbl1 &A):crd3(A){}
 
 pnt3 pnt3::operator+=(const vtr3 &V)
 {
@@ -80,3 +83,11 @@ pnt3::operator simd::float3()
 	simd::float3 res={(float)_x,(float)_y,(float)_z};
 	return res;
 }
+
+double& pnt3::x(){return _x;}
+double& pnt3::y(){return _y;}
+double& pnt3::z(){return _z;}
+
+double const& pnt3::x() const{return _x;}
+double const& pnt3::y() const{return _y;}
+double const& pnt3::z() const{return _z;}

@@ -1,14 +1,21 @@
 //axes - P. Ahrenkiel
 
 #include <cstdlib>
-#include <math.h>
 
-#include "tlbx.hpp"
-#include "arr.hpp"
-#include "weiss3.hpp"
+#include "dbl2.hpp"
+#include "dbl2sub.hpp"
+
+#include "vtr3.hpp"
+#include "idx3.hpp"
+#include "pnt3.hpp"
+#include "bas3.hpp"
+#include "atr3.hpp"
+#include "ags3.hpp"
 
 const ags3 ags3::Ao(bas3::Bo,pnt3::Po);
 
+ags3::ags3():_b(bas3::Bo),_p(pnt3::Po){}
+ags3::ags3(const bas3 &b,const pnt3 &p):_b(b),_p(p){}
 ags3::operator arr::dbl2() const
 {
 	arr::dbl2 D=arr::dbl2::ident(4,4);
@@ -103,3 +110,15 @@ ags3::operator simd::float4x4()
 		(float4){ 0.f, 0.f, 0.f, 1.f }
 	);
 }
+
+bas3 &ags3::B(){return _b;}
+bas3 const &ags3::B() const{return _b;}
+
+pnt3 &ags3::p(){return _p;}
+pnt3 const &ags3::p() const{return _p;}
+
+ags3 &ags3::A(){return *this;}
+const ags3 &ags3::A() const{return *this;}
+
+idx3 ags3::operator*(const pnt3 &P) const{return dot(P);}
+

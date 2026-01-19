@@ -14,6 +14,7 @@
 #include "atr3.hpp"
 #include "bas3.hpp"
 #include "ags3.hpp"
+#include "dir3.hpp"
 
 typedef crd3 crd;
 typedef idx3 idx;

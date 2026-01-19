@@ -5,7 +5,6 @@
 
 class trf2;
 
-//scl2
 class scl2:public trf2
 {
 
