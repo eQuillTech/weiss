@@ -18,3 +18,6 @@ Can you fix this message when building project weiss?
 Run script build phase 'Generate CMakeFiles/ALL_BUILD' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked.
 
 Why is the project showing "-- project weiss" three times on the terminal when building with CMake?
+
+Can I have CMake generate "weiss2" and "weiss3" as part of a single target "weiss"? In the project, I want "weiss2" and "weiss3" to be display in
+separate groups within the target/group "weiss".
