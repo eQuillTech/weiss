@@ -29,7 +29,7 @@ target_include_directories(${PROJECT_NAME}2
 target_compile_features(${PROJECT_NAME}2 PRIVATE cxx_std_17)
 set_target_properties(${PROJECT_NAME}2 PROPERTIES
     LINKER_LANGUAGE CXX
-    FOLDER "weiss")
+    FOLDER ${PROJECT_NAME})
 source_group("headers" FILES ${cpp_headers2})
 source_group("sources" FILES ${cpp_sources2})
 source_group("" FILES ${PROJECT_NAME}2/${PROJECT_NAME}2.hpp)
@@ -48,7 +48,7 @@ target_include_directories(${PROJECT_NAME}3
 target_compile_features(${PROJECT_NAME}3 PRIVATE cxx_std_17)
 set_target_properties(${PROJECT_NAME}3 PROPERTIES
     LINKER_LANGUAGE CXX
-    FOLDER "weiss")
+    FOLDER ${PROJECT_NAME})
 source_group("headers" FILES ${cpp_headers3})
 source_group("sources" FILES ${cpp_sources3})
 source_group("" FILES ${PROJECT_NAME}3/${PROJECT_NAME}3.hpp)

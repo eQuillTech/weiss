@@ -21,3 +21,5 @@ Why is the project showing "-- project weiss" three times on the terminal when b
 
 Can I have CMake generate "weiss2" and "weiss3" as part of a single target "weiss"? In the project, I want "weiss2" and "weiss3" to be display in
 separate groups within the target/group "weiss".
+
+Is it possible to put target "weiss_tests" inside the "weiss" folder/category?
