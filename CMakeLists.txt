@@ -51,9 +51,12 @@ target_include_directories(${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/${PROJECT_NAME}3 ${PROJECT_SOURCE_DIR}/${PROJECT_NAME}3/headers)
 
 # submodules
-if(${CMAKE_PROJECT_NAME} STREQUAL ${PROJECT_NAME})
+if(${CMAKE_PROJECT_NAME} STREQUAL ${PROJECT_NAME} OR NOT TARGET tlbx)
     add_subdirectory(tlbx)
-    add_subdirectory(arr)
+endif()
+
+ if(${CMAKE_PROJECT_NAME} STREQUAL ${PROJECT_NAME} OR NOT TARGET arr)
+   add_subdirectory(arr)
 endif()
 
 option(${PROJECT_NAME}_BUILD_TESTING "Build the testing tree" ON)
