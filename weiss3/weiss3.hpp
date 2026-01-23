@@ -16,16 +16,4 @@
 #include "ags3.hpp"
 #include "dir3.hpp"
 
-typedef crd3 crd;
-typedef idx3 idx;
-typedef pnt3 pnt;
-typedef vtr3 vtr;
-typedef trf3 trf;
-typedef rtn3 rtn;
-typedef scl3 scl;
-typedef rfn3 rfn;
-typedef atr3 atr;
-typedef bas3 bas;
-typedef ags3 ags;
-
 #endif

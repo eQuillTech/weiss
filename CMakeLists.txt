@@ -25,6 +25,9 @@ target_include_directories(${PROJECT_NAME}2
         ${modules_dir}arr ${modules_dir}arr/headers)
 target_compile_features(${PROJECT_NAME}2 PRIVATE cxx_std_17)
 set_target_properties(${PROJECT_NAME}2 PROPERTIES LINKER_LANGUAGE CXX)
+source_group("headers" FILES ${cpp_headers2})
+source_group("sources" FILES ${cpp_sources2})
+source_group("" FILES ${PROJECT_NAME}2/${PROJECT_NAME}2.hpp)
 
 # weiss3
 file(GLOB_RECURSE cpp_headers3 CONFIGURE_DEPENDS ${PROJECT_NAME}3/headers/*.hpp)
@@ -39,9 +42,12 @@ target_include_directories(${PROJECT_NAME}3
         ${modules_dir}arr ${modules_dir}arr/headers)
 target_compile_features(${PROJECT_NAME}3 PRIVATE cxx_std_17)
 set_target_properties(${PROJECT_NAME}3 PROPERTIES LINKER_LANGUAGE CXX)
+source_group("headers" FILES ${cpp_headers3})
+source_group("sources" FILES ${cpp_sources3})
+source_group("" FILES ${PROJECT_NAME}3/${PROJECT_NAME}3.hpp)
 
 # weiss (header-only library)
-add_library(${PROJECT_NAME} INTERFACE)
+add_library(${PROJECT_NAME} INTERFACE ${PROJECT_NAME}.hpp)
 target_link_libraries(${PROJECT_NAME}
     INTERFACE ${PROJECT_NAME}2 ${PROJECT_NAME}3)
 target_include_directories(${PROJECT_NAME}
@@ -49,6 +55,7 @@ target_include_directories(${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}
         ${PROJECT_SOURCE_DIR}/${PROJECT_NAME}2 ${PROJECT_SOURCE_DIR}/${PROJECT_NAME}2/headers
         ${PROJECT_SOURCE_DIR}/${PROJECT_NAME}3 ${PROJECT_SOURCE_DIR}/${PROJECT_NAME}3/headers)
+source_group("" FILES ${PROJECT_NAME}.hpp)
 
 # submodules
 if(${CMAKE_PROJECT_NAME} STREQUAL ${PROJECT_NAME} OR NOT TARGET tlbx)
