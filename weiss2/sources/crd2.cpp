@@ -4,6 +4,7 @@
 
 #include "dbl1.hpp"
 #include "dbl1.hpp"
+#include "error.hpp"
 
 #include "crd2.hpp"
 

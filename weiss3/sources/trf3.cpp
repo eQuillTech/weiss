@@ -3,6 +3,7 @@
 #include <cstdlib>
 
 #include "dbl2.hpp"
+#include "error.hpp"
 
 #include "vtr3.hpp"
 #include "trf3.hpp"

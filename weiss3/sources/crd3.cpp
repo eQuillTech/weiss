@@ -3,6 +3,8 @@
 #include <cstdlib>
 
 #include "dbl1.hpp"
+#include "error.hpp"
+
 #include "crd3.hpp"
 
 crd3::crd3(double x,double y,double z):_x(x),_y(y),_z(z){}
