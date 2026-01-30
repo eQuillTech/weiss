@@ -64,7 +64,7 @@ public:
 
 	vtr3 operator*=(const trf3 &T);
 
-	static const vtr3 Vo,Vx,Vy,Vz;
+	static const vtr3 zero,X,Y,Z;
 	
 	operator simd::float3();
 };

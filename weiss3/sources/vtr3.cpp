@@ -12,10 +12,10 @@
 #include "trf3.hpp"
 #include "rtn3.hpp"
 
-const vtr3 vtr3::Vo(0.,0.,0.);
-const vtr3 vtr3::Vx(1.,0.,0.);
-const vtr3 vtr3::Vy(0.,1.,0.);
-const vtr3 vtr3::Vz(0.,0.,1.);
+const vtr3 vtr3::zero(0.,0.,0.);
+const vtr3 vtr3::X(1.,0.,0.);
+const vtr3 vtr3::Y(0.,1.,0.);
+const vtr3 vtr3::Z(0.,0.,1.);
 
 vtr3::vtr3():crd3(){}
 vtr3::vtr3(double x,double y,double z):crd3(x,y,z){}

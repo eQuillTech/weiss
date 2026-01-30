@@ -32,7 +32,7 @@ public:
 	
 	vtr3 operator*(const vtr3 &V) const;
 
-	static const rtn3 Ro;
+	static const rtn3 ident;
 };
 
 #endif

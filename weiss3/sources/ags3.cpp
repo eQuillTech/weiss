@@ -12,9 +12,9 @@
 #include "atr3.hpp"
 #include "ags3.hpp"
 
-const ags3 ags3::Ao(bas3::Bo,pnt3::Po);
+const ags3 ags3::Ao(bas3::zero,pnt3::Po);
 
-ags3::ags3():_b(bas3::Bo),_p(pnt3::Po){}
+ags3::ags3():_b(bas3::zero),_p(pnt3::Po){}
 ags3::ags3(const bas3 &b,const pnt3 &p):_b(b),_p(p){}
 ags3::operator arr::dbl2() const
 {

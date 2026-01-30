@@ -12,9 +12,9 @@
 
 const atr3 atr3::Ato=atr3();
 
-atr3::atr3():_t(trf3::To),_v(vtr3::Vo){}
+atr3::atr3():_t(trf3::To),_v(vtr3::zero){}
 atr3::atr3(const trf3 &T,const vtr3 &V):_t(T),_v(V){}
-atr3::atr3(const trf3 &T):_t(T),_v(vtr3::Vo){}
+atr3::atr3(const trf3 &T):_t(T),_v(vtr3::zero){}
 atr3::atr3(const vtr3 &V):_t(trf3::To),_v(V){}
 
 atr3::operator arr::dbl2() const
