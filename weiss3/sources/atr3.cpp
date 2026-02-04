@@ -10,12 +10,13 @@
 #include "ags3.hpp"
 #include "atr3.hpp"
 
-const atr3 atr3::Ato=atr3();
-
-atr3::atr3():_t(trf3::To),_v(vtr3::zero){}
 atr3::atr3(const trf3 &T,const vtr3 &V):_t(T),_v(V){}
+const atr3 atr3::ident(trf3::ident,vtr3::zero);
+
+atr3::atr3():_t(trf3::zero),_v(vtr3::zero){}
+
 atr3::atr3(const trf3 &T):_t(T),_v(vtr3::zero){}
-atr3::atr3(const vtr3 &V):_t(trf3::To),_v(V){}
+atr3::atr3(const vtr3 &V):_t(trf3::zero),_v(V){}
 
 atr3::operator arr::dbl2() const
 {
@@ -25,11 +26,6 @@ atr3::operator arr::dbl2() const
 	return A;
 }
 
-atr3::atr3(const trf3 &T,const pnt3 &P):_t(T)
-{
-	_v=(trf3::ident()-T)*(P-pnt3::Po);
-}
-
 vtr3 atr3::operator*(const vtr3 &V) const noexcept
 {
 	return _t*V;
@@ -37,7 +33,7 @@ vtr3 atr3::operator*(const vtr3 &V) const noexcept
 
 pnt3 atr3::operator*(const pnt3 &P) const noexcept
 {
-	return pnt3::Po+_t*(P-pnt3::Po)+_v;
+	return pnt3::origin+_t*(P-pnt3::origin)+_v;
 }
 
 atr3 atr3::operator*(const atr3 &T) const
@@ -59,14 +55,8 @@ atr3 atr3::inv() const
 ags3 atr3::operator*(const ags3 &A) const
 {
 	bas3 Bp=_t*A.B();
-	pnt3 Pp=pnt3::Po+_t*(A.p()-pnt3::Po)+_v;
+	pnt3 Pp=pnt3::origin+_t*(A.p()-pnt3::origin)+_v;
 	return ags3(Bp,Pp);
-}
-
-//static
-atr3 atr3::ident()
-{
-	return atr3();
 }
 
 atr3::operator simd::float4x4()

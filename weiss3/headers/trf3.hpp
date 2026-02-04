@@ -43,13 +43,14 @@ public:
 
 	trf3 T() const;
 	trf3 inv() const;
-	static trf3 ident();
+
 
 	friend std::ostream& operator<<(std::ostream &os,const trf3 &T);
 	friend trf3 operator*(double x,const trf3 &T);
 	friend trf3 operator/(double x,const trf3 &T);
 
-	static const trf3 To;
+	static const trf3 ident;
+	static const trf3 zero;
 	operator simd::float3x3();
 };
 

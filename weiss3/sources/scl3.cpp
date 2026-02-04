@@ -3,12 +3,10 @@
 #include <cstdlib>
 #include <math.h>
 
-#include "tlbx.hpp"
-#include "arr.hpp"
-#include "weiss3.hpp"
+#include "trf3.hpp"
+#include "scl3.hpp"
 
-//
 scl3::scl3(double x):trf3()
 {
-	*this=x*trf3::ident();
+	*this=x*trf3::ident;
 }

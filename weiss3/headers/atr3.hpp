@@ -23,7 +23,6 @@ public:
 	explicit atr3(const trf3 &T,const vtr3 &V);
 	explicit atr3(const trf3 &T);
 	explicit atr3(const vtr3 &V);
-	explicit atr3(const trf3 &T,const pnt3 &P);
 
 	vtr3 operator*(const vtr3 &V) const noexcept;
 	pnt3 operator*(const pnt3 &P) const noexcept;
@@ -43,9 +42,7 @@ public:
 
 	ags3 operator*(const ags3 &A) const;
 	atr3 inv() const;
-	static atr3 ident();
-
-	static const atr3 Ato;
+	static const atr3 ident;;
 	
 	operator simd::float4x4();
 };
