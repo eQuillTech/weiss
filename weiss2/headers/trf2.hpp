@@ -45,9 +45,8 @@ public:
 	friend trf2 operator*(double x,const trf2 &T);
 	friend trf2 operator/(double x,const trf2 &T);
 
-	static const trf2 ident();
-	
-	static const trf2 To;
+	static const trf2 ident;	
+	static const trf2 zero;
 
 };
 

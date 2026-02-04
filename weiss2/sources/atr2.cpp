@@ -6,7 +6,8 @@
 #include "pnt2.hpp"
 #include "atr2.hpp"
 
-const atr2 atr2::Ato=atr2();
+const atr2 atr2::ident(trf2::ident,vtr2::zero);
+const atr2 atr2::zero(trf2::zero,vtr2::zero);
 
 atr2::operator arr::dbl2() const
 {
@@ -37,13 +38,11 @@ pnt2 atr2::operator*(const pnt2 &P) const
 	return _t*P+_v;
 }
 
-//
 atr2 atr2::operator*(const atr2 &T) const
 {
 	return atr2(_t*T._t,_t*T._v+_v);
 }
 
-//
 atr2 atr2::inv() const
 {
 	trf2 iT=_t.inv();
@@ -54,16 +53,4 @@ atr2 atr2::inv() const
 vtr2 vtr2::operator*=(const atr2 &T)
 {
 	return *this=T*(*this);
-}
-
-//resolve predef
-pnt2 pnt2::operator*=(const atr2 &T)
-{
-	return *this=T*(*this);
-}
-
-//static
-atr2 atr2::ident()
-{
-	return atr2();
 }
