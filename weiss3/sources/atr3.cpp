@@ -10,11 +10,11 @@
 #include "ags3.hpp"
 #include "atr3.hpp"
 
-atr3::atr3(const trf3 &T,const vtr3 &V):_t(T),_v(V){}
 const atr3 atr3::ident(trf3::ident,vtr3::zero);
 
 atr3::atr3():_t(trf3::zero),_v(vtr3::zero){}
-
+atr3::atr3(const trf3 &T,const vtr3 &V):_t(T),_v(V){}
+atr3::atr3(const trf3 &T,const pnt3 &P):_t(T),_v((trf3::ident-T)*(P-pnt3::origin)){}
 atr3::atr3(const trf3 &T):_t(T),_v(vtr3::zero){}
 atr3::atr3(const vtr3 &V):_t(trf3::zero),_v(V){}
 

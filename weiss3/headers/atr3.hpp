@@ -21,6 +21,7 @@ protected:
 public:
 	explicit atr3();
 	explicit atr3(const trf3 &T,const vtr3 &V);
+	explicit atr3(const trf3 &T,const pnt3 &P);
 	explicit atr3(const trf3 &T);
 	explicit atr3(const vtr3 &V);
 

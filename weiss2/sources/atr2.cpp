@@ -9,6 +9,12 @@
 const atr2 atr2::ident(trf2::ident,vtr2::zero);
 const atr2 atr2::zero(trf2::zero,vtr2::zero);
 
+atr2::atr2():_t(trf2::zero),_v(vtr2::zero){}
+atr2::atr2(const trf2 &T,const vtr2 &V):_t(T),_v(V){}
+atr2::atr2(const trf2 &T,const pnt2 &P):_t(T),_v((trf2::ident-T)*(P-pnt2::origin)){}
+atr2::atr2(const trf2 &T):_t(T),_v(vtr2::zero){}
+atr2::atr2(const vtr2 &V):_t(trf2::zero),_v(V){}
+
 atr2::operator arr::dbl2() const
 {
 	auto A=arr::dbl2::ident(3,3);
@@ -16,8 +22,6 @@ atr2::operator arr::dbl2() const
 	A.sub(0,2,2,1)=arr::dbl1(_v);
 	return A;
 }
-
-atr2::atr2(const trf2 &T,const vtr2 &V){_t=T;_v=V;}
 
 atr2 atr2::operator*=(const atr2 &T){return *this=T*(*this);}
 
@@ -41,6 +45,10 @@ pnt2 atr2::operator*(const pnt2 &P) const
 atr2 atr2::operator*(const atr2 &T) const
 {
 	return atr2(_t*T._t,_t*T._v+_v);
+}
+atr2 atr2::operator/(const atr2 &T) const
+{
+	return T.inv()*(*this);
 }
 
 atr2 atr2::inv() const
