@@ -6,7 +6,7 @@
 #include "pnt2.hpp"
 #include "atr2.hpp"
 
-const atr2 atr2::Ato=atr2();
+const atr2 atr2::ident=atr2();
 
 atr2::operator arr::dbl2() const
 {
@@ -60,10 +60,4 @@ vtr2 vtr2::operator*=(const atr2 &T)
 pnt2 pnt2::operator*=(const atr2 &T)
 {
 	return *this=T*(*this);
-}
-
-//static
-atr2 atr2::ident()
-{
-	return atr2();
 }

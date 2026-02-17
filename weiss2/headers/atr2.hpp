@@ -37,9 +37,7 @@ public:
 	vtr2 const &b() const;
 
 	atr2 inv() const;
-	static atr2 ident();
-
-	static const atr2 Ato;
+	static const atr2 ident;
 };
 
 #endif
