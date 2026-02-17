@@ -10,7 +10,7 @@
 #include "ags3.hpp"
 #include "atr3.hpp"
 
-const atr3 atr3::Ato=atr3();
+const atr3 atr3::ident=atr3();
 
 atr3::atr3():_t(trf3::ident),_v(vtr3::zero){}
 atr3::atr3(const trf3 &T,const vtr3 &V):_t(T),_v(V){}
@@ -61,12 +61,6 @@ ags3 atr3::operator*(const ags3 &A) const
 	bas3 Bp=_t*A.B();
 	pnt3 Pp=pnt3::origin+_t*(A.p()-pnt3::origin)+_v;
 	return ags3(Bp,Pp);
-}
-
-//static
-atr3 atr3::ident()
-{
-	return atr3();
 }
 
 atr3::operator simd::float4x4()
