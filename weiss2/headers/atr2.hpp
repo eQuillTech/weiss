@@ -19,7 +19,7 @@ protected:
 	vtr2 _v;
 	
 public:
-	atr2(const trf2 &T=trf2::To,const vtr2 &V=vtr2::zero);
+	atr2(const trf2 &T=trf2::ident,const vtr2 &V=vtr2::zero);
 
 	vtr2 operator*(const vtr2 &V) const;
 	pnt2 operator*(const pnt2 &P) const;
