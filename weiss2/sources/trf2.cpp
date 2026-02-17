@@ -9,10 +9,10 @@
 #include "pnt2.hpp"
 #include "trf2.hpp"
 
-const trf2 trf2::To=trf2::ident();
+const trf2 trf2::ident({{{1.,0.},{0.,1.}}});
 
 trf2::trf2():_00(0.),_01(0.),_10(0.),_11(0.){}
-trf2::trf2(const double x[2][2]):_00(x[0][0]),_01(x[0][1]),_10(x[1][0]),_11(x[1][1]){}
+trf2::trf2(const double p[2][2]):_00(p[0][0]),_01(p[0][1]),_10(p[1][0]),_11(p[1][1]){}
 
 trf2 trf2::operator/(const trf2 &T) const{return T.inv()*(*this);}
 trf2 trf2::operator*=(const trf2 &T){return *this=*this*T;}
@@ -21,13 +21,6 @@ trf2 trf2::operator/=(const trf2 &T){return *this=*this/T;}
 double &trf2::operator()(const size_t i,const size_t j){return _p[i][j];}
 double const &trf2::operator()(const size_t i,const size_t j) const{return _p[i][j];}
 
-//static
-const trf2 trf2::ident()
-{
-	const double x[2][2]={{1.,0.},{0.,1.}};
-	return trf2(x);
-}
-	
 trf2::trf2(const arr::dbl2 &D)
 {
 	if((D.size(0)==2)&&(D.size(1)==2))

@@ -23,7 +23,7 @@ protected:
 	
 public:
 	trf2();
-	trf2(const double x[2][2]);
+	trf2(const double p[2][2]);
 	trf2(const arr::dbl2 &D);
 
 	vtr2 operator*(const vtr2 &V) const;
@@ -45,7 +45,7 @@ public:
 	friend trf2 operator*(double x,const trf2 &T);
 	friend trf2 operator/(double x,const trf2 &T);
 
-	static const trf2 ident();
+	static const trf2 ident;
 	
 	static const trf2 To;
 
