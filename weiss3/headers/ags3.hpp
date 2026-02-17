@@ -50,7 +50,7 @@ public:
 	bool isIn(const pnt3 &P) const;
 	operator simd::float4x4();
 
-	static const ags3 Ao,Axyz;
+	static const ags3 unit;
 };
 
 ags3 operator*(double x,const ags3 &A);

@@ -12,7 +12,7 @@
 #include "atr3.hpp"
 #include "ags3.hpp"
 
-const ags3 ags3::Ao(bas3::unit,pnt3::origin);
+const ags3 ags3::unit(bas3::unit,pnt3::origin);
 
 ags3::ags3():_b(bas3::unit),_p(pnt3::origin){}
 ags3::ags3(const bas3 &b,const pnt3 &p):_b(b),_p(p){}

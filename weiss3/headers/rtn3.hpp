@@ -18,7 +18,6 @@ public:
 	rtn3(const vtr3 &V,const vtr3 &Vp);
 	rtn3(const double theta,const double phi,const double rho);
 	rtn3(const dir3 &dir);
-	//	rtn3(const rtn3 &R) noexcept:trf3(R){}//copy constructor
 
 	rtn3 operator*(const rtn3 &R) const noexcept;
 	rtn3 operator/(const rtn3 &R) const noexcept;
