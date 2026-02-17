@@ -3,6 +3,7 @@
 #include <cstdlib>
 
 #include "vtr2.hpp"
+#include "atr2.hpp"
 
 const vtr2 vtr2::zero(0.,0.);
 const vtr2 vtr2::X(1.,0.);
@@ -52,3 +53,7 @@ vtr2 operator*(double x,const vtr2 &v){return vtr2(x*v._x,x*v._y);}
 double vtr2::sqrlen() const{return crd2::sqrlen();}
 double vtr2::len() const{return crd2::len();}
 
+vtr2 vtr2::operator*=(const atr2 &T)
+{
+	return *this=T*(*this);
+}

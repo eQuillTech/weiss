@@ -37,6 +37,9 @@ public:
 	pnt2 operator*=(const atr2 &T);
 
 	pnt2 neg();
+	
+	friend std::ostream& operator<<(std::ostream &os,const pnt2 &P);
+	
 	static const pnt2 origin;
 };
 

@@ -69,3 +69,10 @@ double& crd2::y(){return _y;}
 
 double const& crd2::x() const{return _x;}
 double const& crd2::y() const{return _y;}
+
+//friend
+std::ostream& operator<<(std::ostream &os,const crd2 &C)
+{
+	os<<"("<<C.x()<<","<<C.y()<<")";
+	return os;
+}

@@ -54,6 +54,7 @@ public:
 	double& operator()(const size_t i0);
 	double const& operator()(const size_t i0) const;
 	
+	friend std::ostream& operator<<(std::ostream &os,const crd2 &C);
 };
 
 #endif

@@ -58,3 +58,9 @@ inline double pnt2::dist() const{return len();}
 
 inline double sqrdist(const pnt2 &p){return p.sqrdist();}
 inline double dist(const pnt2 &p){return p.dist();}
+
+std::ostream& operator<<(std::ostream &os,const pnt2 &P)
+{
+	os<<crd2(P);
+	return os;
+}

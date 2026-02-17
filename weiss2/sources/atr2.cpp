@@ -18,6 +18,10 @@ atr2::operator arr::dbl2() const
 
 atr2::atr2(const trf2 &T,const vtr2 &V){_t=T;_v=V;}
 
+atr2::atr2(const trf2 &T,const pnt2 &P):atr2(T,P-pnt2::origin)
+{
+}
+
 atr2 atr2::operator*=(const atr2 &T){return *this=T*(*this);}
 
 atr2 atr2::operator/=(const atr2 &T){return *this=*this/T;}
@@ -50,14 +54,13 @@ atr2 atr2::inv() const
 	return atr2(iT,iT*(-_v));
 }
 
-//resolve predef
-vtr2 vtr2::operator*=(const atr2 &T)
+
+pnt2 pnt2::operator*=(const atr2 &T)
 {
 	return *this=T*(*this);
 }
 
-//resolve predef
-pnt2 pnt2::operator*=(const atr2 &T)
+atr2 atr2::operator/(const atr2 &T) const
 {
-	return *this=T*(*this);
+	return T.inv()*(*this);
 }

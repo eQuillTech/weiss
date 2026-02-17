@@ -48,10 +48,12 @@ public:
 	double const& x() const;
 	double const& y() const;
 	double const& z() const;
-
+	
 	static const pnt3 origin;
 	operator simd::float4();
 	operator simd::float3();
+	
+	friend std::ostream& operator<<(std::ostream &os,const pnt3 &P);
 };
 
 //

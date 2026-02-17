@@ -25,9 +25,8 @@ atr3::operator arr::dbl2() const
 	return A;
 }
 
-atr3::atr3(const trf3 &T,const pnt3 &P):_t(T)
+atr3::atr3(const trf3 &T,const pnt3 &P):atr3(T,P-pnt3::origin)
 {
-	_v=(trf3::ident-T)*(P-pnt3::origin);
 }
 
 vtr3 atr3::operator*(const vtr3 &V) const noexcept

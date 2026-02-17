@@ -9,6 +9,7 @@
 
 #include "arr.hpp"
 
+#include "pnt2.hpp"
 #include "vtr2.hpp"
 #include "trf2.hpp"
 
@@ -20,6 +21,7 @@ protected:
 	
 public:
 	atr2(const trf2 &T=trf2::ident,const vtr2 &V=vtr2::zero);
+	explicit atr2(const trf2 &T,const pnt2 &P);
 
 	vtr2 operator*(const vtr2 &V) const;
 	pnt2 operator*(const pnt2 &P) const;

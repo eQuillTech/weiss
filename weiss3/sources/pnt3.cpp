@@ -91,3 +91,9 @@ double& pnt3::z(){return _z;}
 double const& pnt3::x() const{return _x;}
 double const& pnt3::y() const{return _y;}
 double const& pnt3::z() const{return _z;}
+
+std::ostream& operator<<(std::ostream &os,const pnt3 &P)
+{
+	os<<crd3(P);
+	return os;
+}
