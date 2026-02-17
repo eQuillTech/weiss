@@ -9,26 +9,23 @@
 TEST(weissTest, weiss2)
 {
 	pnt2 p(2., 1.);
-	atr2 T0(rtn2(vtr2::X,vtr2::Y),pnt2::origin);
-	atr2 T1(rtn2(vtr2::X,vtr2::Y),p);
-	pnt2 p0=T0*p;
-	pnt2 p1=T1*p;
+	atr2 A0(rtn2(vtr2::X,vtr2::Y),pnt2::origin);
+	atr2 A1(rtn2(vtr2::X,vtr2::Y),p);
+	pnt2 p0=A0*p;
+	pnt2 p1=A1*p;
 
-	EXPECT_EQ(p0, pnt2(-1.,2.))<< p0 <<", "<< pnt2(-1.,2.);
-	EXPECT_EQ(p1, p)<<p1<<", "<<p;
+	EXPECT_NEAR((p0-pnt2(-1.,2.)).len(), 0., 1.e-4)<< p0 <<", "<< pnt2(-1.,2.);
+	EXPECT_NEAR((p1-p).len(), 0., 1.e-4)<<p1<<", "<<p;
 }
 
 TEST(weissTest, weiss3)
 {
-	atr3 aI= atr3::ident;
-	pnt3 p1(2., 1., 0.);
-	pnt3 p2(5., 3., 0.);
-	
-	pnt3 p1p=aI*p1;
-	pnt3 p2p=aI*p2;
+	pnt3 p(2., 1., 3.);
+	atr3 A0(rtn3(vtr3::X,vtr3::Y),pnt3::origin);
+	atr3 A1(rtn3(vtr3::X,vtr3::Y),p);
+	pnt3 p0=A0*p;
+	pnt3 p1=A1*p;
 
-	auto v12=p2-p1;
-
-	EXPECT_EQ(p1p, p1)<< p1p <<", "<<p1;
-	EXPECT_EQ(p2p, p2)<< p2p <<", "<<p2;
+	EXPECT_NEAR((p0-pnt3(-1.,2.,3.)).len(), 0., 1.e-4)<< p0 <<", "<< pnt3(-1.,2.,3.);
+	EXPECT_NEAR((p1-p).len(), 0., 1.e-4)<<p1<<", "<<p;
 }

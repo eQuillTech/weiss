@@ -29,11 +29,18 @@ public:
 	vtr2 operator*(const vtr2 &V) const;
 	pnt2 operator*(const pnt2 &P) const;
 
+	trf2 operator+(const trf2 &T) const;
+	trf2 operator-(const trf2 &T) const;
 	trf2 operator*(const trf2 &T) const;
 	trf2 operator/(const trf2 &T) const;
+	trf2 operator+=(const trf2 &T);
+	trf2 operator-=(const trf2 &T);
 	trf2 operator*=(const trf2 &T);
 	trf2 operator/=(const trf2 &T);
 
+	trf2 operator+() const;
+	trf2 operator-() const;
+	
 	operator arr::dbl2() const;
 
 	double &operator()(const size_t i,const size_t j);

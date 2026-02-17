@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <math.h>
 
+#include "trg.hpp"
+
 #include "vtr2.hpp"
 #include "trf2.hpp"
 #include "rtn2.hpp"
@@ -18,7 +20,7 @@ rtn2::rtn2(const vtr2 &V,const vtr2 &Vp):trf2()
 
 	if((magV>0.)&&(magVp>0.))
 	{
-		double angle=atan2(V.dot(Vp),V.cross(Vp));
+		double angle=trg::acssn(V.dot(Vp),V.cross(Vp));
 		*this=rtn2(angle);
 	}
 }
@@ -26,7 +28,7 @@ rtn2::rtn2(const vtr2 &V,const vtr2 &Vp):trf2()
 rtn2::rtn2(const double angle):trf2()
 {
 	double c=cos(angle),s=sin(angle);
-	double u[2][2]={{c,s},{-s,c}};
+	double u[2][2]={{c,-s},{s,c}};
 	*this=trf2(u);
 }
 

@@ -29,6 +29,11 @@ trf3::trf3(const arr::dbl2 &D)
 }
 
 trf3 trf3::operator+() const{return *this;}
+
+trf3 trf3::operator-() const
+{
+	return -1.*(*this);
+}
 	
 trf3::trf3(const double p[3][3])
 {
@@ -111,11 +116,6 @@ trf3::operator simd::float3x3()
 	float3 row2={(float)_p[2][0],(float)_p[2][1],(float)_p[2][2]};
 	
 	return simd_matrix(row0,row1,row2);
-}
-
-trf3 trf3::operator-() const
-{
-	return -1.*(*this);
 }
 
 std::ostream& operator<<(std::ostream &os,const trf3 &T)

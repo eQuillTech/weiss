@@ -68,6 +68,26 @@ trf2 trf2::operator*(const trf2 &T) const
 	return Tp;
 }
 
+trf2 trf2::operator+(const trf2 &T) const
+{
+	trf2 Tp;
+	for(size_t i=0;i<2;++i)
+		for(size_t j=0;j<2;++j)
+			Tp._p[i][j]=_p[i][j]+T._p[i][j];
+	return Tp;
+}
+
+trf2 trf2::operator-(const trf2 &T) const{return -T+(*this);}
+trf2 trf2::operator+=(const trf2 &T){return *this=*this+T;}
+trf2 trf2::operator-=(const trf2 &T){return *this=*this-T;}
+
+trf2 trf2::operator+() const{return *this;}
+
+trf2 trf2::operator-() const
+{
+	return -1.*(*this);
+}
+
 trf2 trf2::inv() const
 {
 	return arr::dbl2(*this).inv();
