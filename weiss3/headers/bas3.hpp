@@ -58,8 +58,7 @@ public:
 	bas3 recip() const;
 	double vol() const;
 	
-	static const bas3 Bo;
-	static const bas3 Bunit;
+	static const bas3 unit;
 };
 
 bas3 operator*(double x,const bas3 &A);

@@ -9,7 +9,7 @@
 #include "rtn3.hpp"
 #include "dir3.hpp"
 
-const rtn3 rtn3::Ro(vtr3::Z,0.);
+const rtn3 rtn3::ident(vtr3::Z,0.);
 
 rtn3::rtn3(const trf3 &T):trf3(T){}
 
