@@ -12,9 +12,9 @@
 #include "atr3.hpp"
 #include "ags3.hpp"
 
-const ags3 ags3::Ao(bas3::Bo,pnt3::Po);
+const ags3 ags3::Ao(bas3::Bo,pnt3::origin);
 
-ags3::ags3():_b(bas3::Bo),_p(pnt3::Po){}
+ags3::ags3():_b(bas3::Bo),_p(pnt3::origin){}
 ags3::ags3(const bas3 &b,const pnt3 &p):_b(b),_p(p){}
 ags3::operator arr::dbl2() const
 {
@@ -39,8 +39,8 @@ idx3 ags3::dot(const pnt3 &P) const
 ags3 ags3::recip() const
 {
 	bas3 iB=_b.recip();
-	vtr3 V=_p-pnt3::Po;
-	pnt3 iP=pnt3::Po-vtr3(iB.a().dot(V),iB.b().dot(V),iB.c().dot(V));
+	vtr3 V=_p-pnt3::origin;
+	pnt3 iP=pnt3::origin-vtr3(iB.a().dot(V),iB.b().dot(V),iB.c().dot(V));
 	return ags3(iB,iP);
 }
 
@@ -60,12 +60,12 @@ atr3 ags3::to(const ags3 &A) const
 {
 
 	trf3 T=_b.to(A._b);
-	vtr3 V=-T*(A._p-pnt3::Po)+(_p-pnt3::Po);
+	vtr3 V=-T*(A._p-pnt3::origin)+(_p-pnt3::origin);
 	return atr3(T,V);
 /*
 	trf3 T=_b.to(A._b);
-	idx3 K=-bas3::Bxyz*(A._p-pnt3::Po);
-	vtr3 V=A._b*K+(_p-pnt3::Po);
+	idx3 K=-bas3::Bxyz*(A._p-pnt3::origin);
+	vtr3 V=A._b*K+(_p-pnt3::origin);
 	return atr3(T,V);
 	*/
 }
@@ -77,7 +77,7 @@ atr3 ags3::operator/(const ags3 &A) const
 	
 ags3 operator*(double x,const ags3 &A)
 {
-	return ags3(x*A.B(),pnt3::Po+x*(A.p()-pnt3::Po));
+	return ags3(x*A.B(),pnt3::origin+x*(A.p()-pnt3::origin));
 }
 
 ags3 recip(ags3 A)

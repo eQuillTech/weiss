@@ -6,7 +6,7 @@
 #include "vtr3.hpp"
 #include "pnt3.hpp"
 
-const pnt3 pnt3::Po(0.,0.,0.);
+const pnt3 pnt3::origin(0.,0.,0.);
 
 pnt3::pnt3():crd3(){}
 pnt3::pnt3(double x,double y,double z):crd3(x,y,z){}
@@ -39,12 +39,12 @@ vtr3 pnt3::operator-(const pnt3 &P) const
 
 pnt3 pnt3::operator*(const atr3 &T) const
 {
-	return pnt3::Po+T.A()*(operator-(pnt3::Po))+T.b();
+	return pnt3::origin+T.A()*(operator-(pnt3::origin))+T.b();
 }
 
 pnt3 pnt3::operator/(const atr3 &T) const
 {
-	return pnt3::Po+T.A().inv()*(operator-(pnt3::Po))+T.b();
+	return pnt3::origin+T.A().inv()*(operator-(pnt3::origin))+T.b();
 }
 
 bool pnt3::operator==(const pnt3 &P) const

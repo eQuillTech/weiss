@@ -37,7 +37,7 @@ public:
 	pnt2 operator*=(const atr2 &T);
 
 	pnt2 neg();
-	static const pnt2 Po;
+	static const pnt2 origin;
 };
 
 inline double sqrdist(const pnt2 &p);

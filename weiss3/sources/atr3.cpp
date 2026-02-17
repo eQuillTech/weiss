@@ -27,7 +27,7 @@ atr3::operator arr::dbl2() const
 
 atr3::atr3(const trf3 &T,const pnt3 &P):_t(T)
 {
-	_v=(trf3::ident()-T)*(P-pnt3::Po);
+	_v=(trf3::ident()-T)*(P-pnt3::origin);
 }
 
 vtr3 atr3::operator*(const vtr3 &V) const noexcept
@@ -37,7 +37,7 @@ vtr3 atr3::operator*(const vtr3 &V) const noexcept
 
 pnt3 atr3::operator*(const pnt3 &P) const noexcept
 {
-	return pnt3::Po+_t*(P-pnt3::Po)+_v;
+	return pnt3::origin+_t*(P-pnt3::origin)+_v;
 }
 
 atr3 atr3::operator*(const atr3 &T) const
@@ -59,7 +59,7 @@ atr3 atr3::inv() const
 ags3 atr3::operator*(const ags3 &A) const
 {
 	bas3 Bp=_t*A.B();
-	pnt3 Pp=pnt3::Po+_t*(A.p()-pnt3::Po)+_v;
+	pnt3 Pp=pnt3::origin+_t*(A.p()-pnt3::origin)+_v;
 	return ags3(Bp,Pp);
 }
 

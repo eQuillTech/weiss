@@ -7,7 +7,7 @@
 #include "pnt2.hpp"
 #include "vtr2.hpp"
 
-const pnt2 pnt2::Po(0.,0.);
+const pnt2 pnt2::origin(0.,0.);
 
 pnt2::pnt2():crd2(){}
 pnt2::pnt2(double x,double y):crd2(x,y){}
