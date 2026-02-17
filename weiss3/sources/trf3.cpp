@@ -9,7 +9,7 @@
 #include "trf3.hpp"
 #include "bas3.hpp"
 
-const trf3 trf3::To(trf3::ident());
+const trf3 trf3::ident({{{1.,0.,0.,},{0.,1.,0.},{0.,0.,1.}}});
 
 trf3::trf3()
 {
@@ -101,12 +101,6 @@ trf3 operator*(double x,const trf3 &T)
 trf3 operator/(double x,const trf3 &T)
 {
 	return x*T.inv();
-}
-
-//static
-trf3 trf3::ident()
-{
-	return arr::dbl2::ident(3,3);
 }
 
 trf3::operator simd::float3x3()

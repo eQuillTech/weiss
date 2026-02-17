@@ -12,10 +12,10 @@
 
 const atr3 atr3::Ato=atr3();
 
-atr3::atr3():_t(trf3::To),_v(vtr3::zero){}
+atr3::atr3():_t(trf3::ident),_v(vtr3::zero){}
 atr3::atr3(const trf3 &T,const vtr3 &V):_t(T),_v(V){}
 atr3::atr3(const trf3 &T):_t(T),_v(vtr3::zero){}
-atr3::atr3(const vtr3 &V):_t(trf3::To),_v(V){}
+atr3::atr3(const vtr3 &V):_t(trf3::ident),_v(V){}
 
 atr3::operator arr::dbl2() const
 {
@@ -27,7 +27,7 @@ atr3::operator arr::dbl2() const
 
 atr3::atr3(const trf3 &T,const pnt3 &P):_t(T)
 {
-	_v=(trf3::ident()-T)*(P-pnt3::origin);
+	_v=(trf3::ident-T)*(P-pnt3::origin);
 }
 
 vtr3 atr3::operator*(const vtr3 &V) const noexcept

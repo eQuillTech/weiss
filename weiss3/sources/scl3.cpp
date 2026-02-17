@@ -10,5 +10,5 @@
 //
 scl3::scl3(double x):trf3()
 {
-	*this=x*trf3::ident();
+	*this=x*trf3::ident;
 }

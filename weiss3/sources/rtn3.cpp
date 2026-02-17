@@ -49,7 +49,7 @@ rtn3::rtn3(const vtr3 &V,const double angle):trf3()
 	}
 	else
 	{
-		*this=trf3::ident();
+		*this=trf3::ident;
 	}
 }
 
@@ -63,10 +63,10 @@ rtn3::rtn3(const vtr3 &V,const vtr3 &Vp):trf3()
 		if(axisV.len()>0.)
 			*this=rtn3(axisV,angle);
 		else
-			*this=trf3::ident();
+			*this=trf3::ident;
 	}
 	else
-			*this=trf3::ident();
+			*this=trf3::ident;
 }
 
 rtn3::rtn3(const double theta,const double phi,const double rho):trf3()
