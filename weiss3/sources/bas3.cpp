@@ -10,11 +10,11 @@
 #include "idx3.hpp"
 #include "bas3.hpp"
 
-const bas3 bas3::Bo(vtr3::Vo,vtr3::Vo,vtr3::Vo);
-const bas3 bas3::Bunit(vtr3::Vx,vtr3::Vy,vtr3::Vz);
+const bas3 bas3::Bo(vtr3::zero,vtr3::zero,vtr3::zero);
+const bas3 bas3::Bunit(vtr3::X,vtr3::Y,vtr3::Z);
 
 bas3::bas3(const vtr3 &a,const vtr3 &b,const vtr3 &c){_p[0]=a;_p[1]=b;_p[2]=c;}
-bas3::bas3(){_p[0]=_p[1]=_p[2]=vtr3::Vo;}
+bas3::bas3(){_p[0]=_p[1]=_p[2]=vtr3::zero;}
 bas3::bas3(const vtr3 V[]):bas3(V[0],V[1],V[2]){}
 bas3::bas3(const arr::dbl2 &D)
 {
@@ -47,7 +47,7 @@ idx3 bas3::dot(const vtr3 &V) const
 
 vtr3 bas3::operator*(const idx3 &I) const
 {
-	vtr3 V=vtr3::Vo;
+	vtr3 V=vtr3::zero;
 	for(size_t i=0;i<3;i++)
 		V+=I(i)*_p[i];
 	return V;

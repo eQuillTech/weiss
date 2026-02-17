@@ -9,7 +9,7 @@
 #include "rtn3.hpp"
 #include "dir3.hpp"
 
-const rtn3 rtn3::Ro(vtr3::Vz,0.);
+const rtn3 rtn3::Ro(vtr3::Z,0.);
 
 rtn3::rtn3(const trf3 &T):trf3(T){}
 
@@ -31,19 +31,19 @@ rtn3::rtn3(const vtr3 &V,const double angle):trf3()
 	if(V.len()>0.)
 	{
 		u[2]=V.norm();
-		u[1]=u[2].cross(vtr3::Vx);
+		u[1]=u[2].cross(vtr3::X);
 		u[0]=u[1].cross(u[2]);
 		if((u[1].len()==0.)||(u[0].len()==0.))
 		{
-			u[0]=vtr3::Vy.cross(u[2]);
+			u[0]=vtr3::Y.cross(u[2]);
 			u[1]=u[2].cross(u[0]);
 		}
 		rtn3 R(u[0],u[1],u[2]);
 		
 		vtr3 up[3];
-		up[0]=cos(angle)*vtr3::Vx+sin(angle)*vtr3::Vy;
-		up[1]=-sin(angle)*vtr3::Vx+cos(angle)*vtr3::Vy;
-		up[2]=vtr3::Vz;
+		up[0]=cos(angle)*vtr3::X+sin(angle)*vtr3::Y;
+		up[1]=-sin(angle)*vtr3::X+cos(angle)*vtr3::Y;
+		up[2]=vtr3::Z;
 		rtn3 Rp(up[0],up[1],up[2]);		
 		*this=R*Rp*(R.inv());
 	}
@@ -71,7 +71,7 @@ rtn3::rtn3(const vtr3 &V,const vtr3 &Vp):trf3()
 
 rtn3::rtn3(const double theta,const double phi,const double rho):trf3()
 {
-	*this=rtn3(vtr3::Vz,phi)*rtn3(vtr3::Vy,theta)*rtn3(vtr3::Vz,rho);
+	*this=rtn3(vtr3::Z,phi)*rtn3(vtr3::Y,theta)*rtn3(vtr3::Z,rho);
 }
 
 rtn3::rtn3(const dir3 &dir):trf3()

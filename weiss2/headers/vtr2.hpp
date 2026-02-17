@@ -50,7 +50,7 @@ public:
 	vtr2 operator*=(const trf2 &T);
 	vtr2 operator*=(const atr2 &T);
 
-	static const vtr2 Vo,Vx,Vy;
+	static const vtr2 zero,X,Y;
 };
  
 inline double dot(const vtr2 &V1,const vtr2 &V2){return V1.dot(V2);}

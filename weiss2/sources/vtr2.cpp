@@ -4,9 +4,9 @@
 
 #include "vtr2.hpp"
 
-const vtr2 vtr2::Vo(0.,0.);
-const vtr2 vtr2::Vx(1.,0.);
-const vtr2 vtr2::Vy(0.,1.);
+const vtr2 vtr2::zero(0.,0.);
+const vtr2 vtr2::X(1.,0.);
+const vtr2 vtr2::Y(0.,1.);
 
 double vtr2::cross(const vtr2 &V) const
 {
