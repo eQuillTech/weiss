@@ -10,7 +10,7 @@
 #include "idx3.hpp"
 #include "bas3.hpp"
 
-const bas3 bas3::unit(vtr3::X,vtr3::Y,vtr3::Z);
+const bas3 bas3::unit(vtr3(1.,0.,0.),vtr3(0.,1.,0.),vtr3(0.,0.,1.));
 
 bas3::bas3(const vtr3 &a,const vtr3 &b,const vtr3 &c){_p[0]=a;_p[1]=b;_p[2]=c;}
 bas3::bas3(){_p[0]=_p[1]=_p[2]=vtr3::zero;}
