@@ -47,7 +47,9 @@ public:
 	bas3 operator/(const trf3 &T) const;
 	bas3 operator*=(const trf3 &T);
 	bas3 operator/=(const trf3 &T);
-
+	bool operator==(const bas3 &B) const;
+	bool operator!=(const bas3 &B) const;
+	
 	trf3 dot(const bas3 &B) const;
 	trf3 to(const bas3 &B) const;
 	trf3 operator*(const bas3 &B) const;

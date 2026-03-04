@@ -26,6 +26,14 @@ ags3::operator arr::dbl2() const
 	return D;
 }
 
+ags3 ags3::recip() const
+{
+	bas3 iB=_b.recip();
+	vtr3 V=_p-pnt3::origin;
+	pnt3 iP=pnt3::origin-vtr3(iB.a().dot(V),iB.b().dot(V),iB.c().dot(V));
+	return ags3(iB,iP);
+}
+
 pnt3 ags3::operator*(const idx3 &I) const
 {
 	return _p+_b*I;
@@ -34,14 +42,6 @@ pnt3 ags3::operator*(const idx3 &I) const
 idx3 ags3::dot(const pnt3 &P) const
 {
 	return _b*(P-_p);
-}
-
-ags3 ags3::recip() const
-{
-	bas3 iB=_b.recip();
-	vtr3 V=_p-pnt3::origin;
-	pnt3 iP=pnt3::origin-vtr3(iB.a().dot(V),iB.b().dot(V),iB.c().dot(V));
-	return ags3(iB,iP);
 }
 
 idx3 ags3::operator()(const pnt3 &P) const
@@ -119,6 +119,4 @@ pnt3 const &ags3::p() const{return _p;}
 
 ags3 &ags3::A(){return *this;}
 const ags3 &ags3::A() const{return *this;}
-
-idx3 ags3::operator*(const pnt3 &P) const{return dot(P);}
 

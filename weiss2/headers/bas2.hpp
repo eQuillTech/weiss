@@ -45,6 +45,9 @@ public:
 	bas2 operator/(const trf2 &T) const;
 	bas2 operator*=(const trf2 &T);
 	bas2 operator/=(const trf2 &T);
+	bool operator==(const bas2 &B) const;
+	bool operator!=(const bas2 &B) const;
+	
 	trf2 dot(const bas2 &B) const;
 	trf2 to(const bas2 &B) const;
 	trf2 operator*(const bas2 &B) const;
