@@ -119,6 +119,13 @@ bas3 bas3::operator/=(const trf3 &T)
 	return *this=(*this)/T;
 }
 
+bool bas3::operator==(const bas3 &B) const
+{
+	return (a()==B.a())&&(b()==B.b())&&(c()==B.c());
+}
+
+bool bas3::operator!=(const bas3 &B) const{return !((*this)==B);}
+
 const bas3 &bas3::B() const{return *this;}
 
 vtr3& bas3::operator()(const size_t i){return _p[i];}

@@ -139,3 +139,10 @@ double vol(const bas2 &A)
 
 trf2 bas2::operator*(const bas2 &B) const{return dot(B);}
 trf2 bas2::operator/(const bas2 &B) const{return to(B);}
+
+bool bas2::operator==(const bas2 &B) const
+{
+	return (a()==B.a())&&(b()==B.b());
+}
+
+bool bas2::operator!=(const bas2 &B) const{return !((*this)==B);}
