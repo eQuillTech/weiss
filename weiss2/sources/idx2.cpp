@@ -3,7 +3,6 @@
 
 #include "mth.hpp"
 
-#include "crd2.hpp"
 #include "idx2.hpp"
 
 const idx2 idx2::I00(0.,0.);

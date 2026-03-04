@@ -5,7 +5,8 @@
 
 #include "dbl1.hpp"
 
-class crd2;
+#include "crd2.hpp"
+
 class vtr2;
 
 class idx2:public crd2
