@@ -6,9 +6,12 @@
 #include "crd2.hpp"
 #include "pnt2.hpp"
 #include "vtr2.hpp"
+#include "bas2.hpp"
+#include "idx2.hpp"
 #include "trf2.hpp"
 #include "rtn2.hpp"
 #include "scl2.hpp"
 #include "atr2.hpp"
+#include "ags2.hpp"
 
 #endif

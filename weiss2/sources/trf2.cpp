@@ -8,6 +8,7 @@
 #include "vtr2.hpp"
 #include "pnt2.hpp"
 #include "trf2.hpp"
+#include "bas2.hpp"
 
 const trf2 trf2::ident({{{1.,0.},{0.,1.}}});
 
@@ -29,6 +30,11 @@ trf2::trf2(const arr::dbl2 &D)
 				_p[i][j]=D(i,j);
 	else
 		arr::err=-1;
+}
+
+bas2 trf2::operator*(const bas2 &B) const
+{
+	return bas2(operator*(B.a()),operator*(B.b()));
 }
 
 trf2::operator arr::dbl2() const

@@ -4,6 +4,7 @@
 
 #include "dbl2.hpp"
 #include "pnt2.hpp"
+#include "bas2.hpp"
 #include "atr2.hpp"
 
 const atr2 atr2::ident=atr2();
@@ -60,8 +61,14 @@ atr2 atr2::inv() const
 	return atr2(iT,iT*(-_v));
 }
 
-//resolve predef
 pnt2 pnt2::operator*=(const atr2 &T)
 {
 	return *this=T*(*this);
+}
+
+ags2 atr2::operator*(const ags2 &A) const
+{
+	bas2 Bp=_t*A.B();
+	pnt2 Pp=pnt2::origin+_t*(A.p()-pnt2::origin)+_v;
+	return ags2(Bp,Pp);
 }

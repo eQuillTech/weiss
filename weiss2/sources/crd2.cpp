@@ -42,6 +42,13 @@ double const& crd2::operator()(const size_t i) const
 	return _p[1];
 }
 
+std::size_t crd2::hash() const
+{
+	std::size_t h1 = std::hash<double>{}(_x);
+	std::size_t h2 = std::hash<double>{}(_y);
+	return h1 ^ (h2 << 1);
+};
+
 crd2 crd2::operator+(){return *this;}
 crd2 crd2::operator-(){return crd2(-_x,-_y);}
 

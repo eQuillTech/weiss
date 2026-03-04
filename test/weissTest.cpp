@@ -9,13 +9,21 @@
 TEST(weissTest, weiss2)
 {
 	pnt2 p(2., 1.);
-	atr2 A0(rtn2(vtr2::X,vtr2::Y),pnt2::origin);
-	atr2 A1(rtn2(vtr2::X,vtr2::Y),p);
-	pnt2 p0=A0*p;
-	pnt2 p1=A1*p;
+	atr2 T0(rtn2(vtr2::X,vtr2::Y),pnt2::origin);
+	atr2 T1(rtn2(vtr2::X,vtr2::Y),p);
+	pnt2 p0=T0*p;
+	pnt2 p1=T1*p;
 
 	EXPECT_NEAR((p0-pnt2(-1.,2.)).len(), 0., 1.e-4)<< p0 <<", "<< pnt2(-1.,2.);
 	EXPECT_NEAR((p1-p).len(), 0., 1.e-4)<<p1<<", "<<p;
+	
+	double a=3.,b=4.;
+	bas2 B(vtr2(a,0.),vtr2(0.,b));
+	ags2 A(B,p);
+
+	ags2 A1=T1*A;
+	pnt2 P=A*A(p),Pp=A1*A1(p);
+	EXPECT_NEAR((P-Pp).len(), 0., 1.e-4)<< P <<", "<< Pp;
 }
 
 TEST(weissTest, weiss3)

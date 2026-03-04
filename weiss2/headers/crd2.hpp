@@ -43,6 +43,7 @@ public:
 	crd2(double x=0.,double y=0.);
 	crd2(const double x[2]);
 	crd2(const arr::dbl1 &A);
+	std::size_t hash() const;
 	
 	operator arr::dbl1() const;
 	double& x();

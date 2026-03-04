@@ -13,6 +13,7 @@
 #include "vtr2.hpp"
 #include "trf2.hpp"
 
+#include "ags2.hpp"
 class atr2
 {
 protected:
@@ -38,6 +39,7 @@ public:
 	trf2 const &A() const;
 	vtr2 const &b() const;
 
+	ags2 operator*(const ags2 &A) const;
 	atr2 inv() const;
 	static const atr2 ident;
 };

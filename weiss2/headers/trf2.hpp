@@ -7,6 +7,7 @@
 
 class vtr2;
 class pnt2;
+class bas2;
 
 class trf2
 {
@@ -28,6 +29,7 @@ public:
 
 	vtr2 operator*(const vtr2 &V) const;
 	pnt2 operator*(const pnt2 &P) const;
+	bas2 operator*(const bas2 &B) const;
 
 	trf2 operator+(const trf2 &T) const;
 	trf2 operator-(const trf2 &T) const;

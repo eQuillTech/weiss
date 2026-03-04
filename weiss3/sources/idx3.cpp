@@ -14,6 +14,7 @@ const idx3 idx3::I111(1.,1.,1.);
 const idx3 idx3::Imid(0.5,0.5,0.5);
 
 idx3::idx3():crd3(){}
+idx3::idx3(const crd3 &C):crd3(C){}
 idx3::idx3(const double h,const double k,const double l):crd3(h,k,l){}
 idx3::idx3(const arr::dbl1 &D):crd3(D){}
 
@@ -47,8 +48,6 @@ bool idx3::operator!=(const idx3 &I) const
 {
 	return !((*this)==I);
 }
-
-idx3::idx3(const crd3 &C):crd3(C){}
 
 double& idx3::h(){return _x;}
 double& idx3::k(){return _y;}
