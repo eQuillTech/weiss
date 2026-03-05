@@ -55,7 +55,7 @@ bas2 bas2::recip() const
 	double v=vol();
 	vtr2 V[2];
 	V[0]=vtr2(_p[1].y(),-_p[1].x())/v;
-	V[1]=vtr2(-_p[0].x(),_p[0].y())/v;
+	V[1]=vtr2(-_p[0].y(),_p[0].x())/v;
 	return bas2(V);
 }
 

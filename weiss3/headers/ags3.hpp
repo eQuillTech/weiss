@@ -32,9 +32,6 @@ public:
 
 	operator arr::dbl2() const;
 
-	idx3 dot(const pnt3 &P) const;
-	idx3 operator*(const pnt3 &P) const;
-	pnt3 operator*(const idx3 &I) const;
 	ags3 operator/(const trf3 &T) const;
 	ags3 operator*=(const atr3 &T);
 	ags3 operator/=(const atr3 &T);
@@ -43,6 +40,10 @@ public:
 	atr3 operator/(const ags3 &A) const;
 
 	idx3 operator()(const pnt3 &P) const;
+	idx3 dot(const pnt3 &P) const;
+	//idx3 operator*(const pnt3 &P) const;
+	pnt3 operator*(const idx3 &I) const;
+	
 	friend std::ostream& operator<<(std::ostream &os,const ags3 &A);
 
 	ags3 recip() const;

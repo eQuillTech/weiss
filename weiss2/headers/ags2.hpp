@@ -31,9 +31,7 @@ public:
 	const ags2 &A() const;			
 	operator arr::dbl2() const;
 
-	idx2 dot(const pnt2 &P) const;
-	idx2 operator*(const pnt2 &P) const;
-	pnt2 operator*(const idx2 &I) const;
+	//idx2 operator*(const pnt2 &P) const;
 	ags2 operator/(const trf2 &T) const;
 	ags2 operator*=(const atr2 &T);
 	ags2 operator/=(const atr2 &T);
@@ -41,7 +39,10 @@ public:
 	atr2 to(const ags2 &A) const;
 	atr2 operator/(const ags2 &A) const;
 
+	pnt2 operator*(const idx2 &I) const;
 	idx2 operator()(const pnt2 &P) const;
+	idx2 dot(const pnt2 &P) const;
+	
 	friend std::ostream& operator<<(std::ostream &os,const ags2 &A);
 
 	ags2 recip() const;

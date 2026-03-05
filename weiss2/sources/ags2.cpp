@@ -26,11 +26,6 @@ ags2::operator arr::dbl2() const
 	return D;
 }
 
-pnt2 ags2::operator*(const idx2 &I) const
-{
-	return _p+_b*I;
-}
-
 idx2 ags2::dot(const pnt2 &P) const
 {
 	return _b*(P-_p);
@@ -48,6 +43,11 @@ idx2 ags2::operator()(const pnt2 &P) const
 {
 	auto iA=recip();
 	return iA.B()*(P-_p);
+}
+
+pnt2 ags2::operator*(const idx2 &I) const
+{
+	return _p+_b*I;
 }
 
 std::ostream& operator<<(std::ostream &os,const ags2 &A)
@@ -101,4 +101,4 @@ pnt2 const &ags2::p() const{return _p;}
 ags2 &ags2::A(){return *this;}
 const ags2 &ags2::A() const{return *this;}
 
-idx2 ags2::operator*(const pnt2 &P) const{return dot(P);}
+//idx2 ags2::operator*(const pnt2 &P) const{return dot(P);}
