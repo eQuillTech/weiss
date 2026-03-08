@@ -6,11 +6,12 @@
 
 #include "vtr3.hpp"
 #include "pnt3.hpp"
+#include "pnt3.hpp"
 #include "idx3.hpp"
 #include "ags3.hpp"
 #include "atr3.hpp"
 
-const atr3 atr3::ident=atr3();
+const atr3 atr3::ident=atr3(trf3({{{1.,0.,0.,},{0.,1.,0.},{0.,0.,1.}}}),vtr3(0.,0.,0.));
 
 atr3::atr3():_t(trf3::ident),_v(vtr3::zero){}
 atr3::atr3(const trf3 &T,const vtr3 &V):_t(T),_v(V){}
