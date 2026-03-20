@@ -58,6 +58,12 @@ vtr3::operator simd::float3()
 	return res;
 }
 
+vtr3::operator simd::float4()
+{
+	simd::float4 res={(float)_x,(float)_y,(float)_z,0.};
+	return res;
+}
+
 vtr3 vtr3::operator/(const trf3 &T)
 {
 	return T.inv()*(*this);

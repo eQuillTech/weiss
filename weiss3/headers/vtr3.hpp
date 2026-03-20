@@ -67,6 +67,7 @@ public:
 	static const vtr3 zero,X,Y,Z;
 	
 	operator simd::float3();
+	operator simd::float4();
 };
  
 inline double dot(const vtr3 &V1,const vtr3 &V2){return V1.dot(V2);}
